@@ -128,7 +128,7 @@ namespace maqueen{
 
         switch (unit) {
             case PingUnit.Centimeters: return d / 42;
-            default: return d ;
+            default: return <number>d ;
         }
     }
     
