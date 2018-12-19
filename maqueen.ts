@@ -115,13 +115,11 @@ namespace maqueen{
         // send pulse
         pins.setPull(DigitalPin.P1, PinPullMode.PullNone);
         pins.digitalWritePin(DigitalPin.P1, 0);
-        control.waitMicros(2);
+        basic.pause(2);
         pins.digitalWritePin(DigitalPin.P1, 1);
-        control.waitMicros(10);
+        basic.pause(1);
         pins.digitalWritePin(DigitalPin.P1, 0);
         
-        
-
         // read pulse
         let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
         console.log("Distance: " + d/42);
