@@ -127,8 +127,8 @@ namespace maqueen{
         basic.pause(200)
 
         switch (unit) {
-            case PingUnit.Centimeters: return d / 42;
-            default: return parseInt(d) ;
+            case PingUnit.Centimeters: return parseInt(d / 42);
+            default: return d ;
         }
     }
     
