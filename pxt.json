@@ -1,7 +1,7 @@
 {
     "name": "maqueen",
     "version": "0.0.1",
-    "description": "Tinkercademy package for ElecFreaks maqueen receiver module",
+    "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
         "core": "*"
