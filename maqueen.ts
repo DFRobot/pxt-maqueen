@@ -156,7 +156,7 @@ namespace maqueen{
             buf[0]=0x02;
         }
         buf[1]=direction;
-        buf[1]=speed;
+        buf[2]=speed;
         pins.i2cWriteBuffer(0x10, buf);
     }
     
