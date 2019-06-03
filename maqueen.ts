@@ -89,6 +89,7 @@ namespace maqueen {
 
     //% weight=100
     //% blockGap=50
+    //% mutateDefaults="myparam:message;"
     //% blockId=IR_callbackUser block="on IR received"
     export function IR_callbackUser(maqueencb: (message: number) => void) {
         maqueenInit()
