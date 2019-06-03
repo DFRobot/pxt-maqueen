@@ -85,6 +85,8 @@ namespace maqueen{
         alreadyInit=1
     }
   
+
+/*
     //% weight=62
     //% blockGap=50
     //% mutate=objectdestructuring
@@ -101,6 +103,23 @@ namespace maqueen{
             maqueencb(packet)
         });
     }
+*/
+
+    //% weight=100
+    //% blockGap=50
+    //% blockId=IR_callbackUser block="on IR received"
+    export function IR_callbackUser(maqueencb: (message: number) => void) {
+        maqueenInit()
+        IR_callback(() => {
+            const packet = new Packeta();
+            packet.mye = maqueene;
+            maqueenparam = getParam();
+            packet.myparam = maqueenparam;
+            maqueencb(packet.myparam)
+        });
+    }
+
+
     
     //% weight=10
     //% blockId=IR_read block="read IR"
