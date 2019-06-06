@@ -108,6 +108,21 @@ namespace maqueen {
         return getParam()
     }
 
+    //% weight=10
+    //% blockId=IR_read_version block="Get firmware version"
+    export function IR_read_version(): string {
+        maqueenInit()
+        pins.i2cWriteNumber(0x10, 50, NumberFormat.UInt8BE);
+        let dataLen = pins.i2cReadNumber(0x10, NumberFormat.UInt8BE);
+        pins.i2cWriteNumber(0x10, 51, NumberFormat.UInt8BE);
+        let buf = pins.i2cReadBuffer(0x10, dataLen, false);
+        let version = "";
+        for (let index = 0; index < dataLen; index++) {
+            version += String.fromCharCode(buf[index])
+        }
+        return version
+    }
+    
     function IR_callback(a: Action): void {
         maqueencb = a
         IrPressEvent += 1
