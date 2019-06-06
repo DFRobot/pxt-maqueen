@@ -17,5 +17,6 @@
     "maqueen.readPatrol|block": "巡线传感器|%patrol",
     "maqueen.writeLED|block": "LED灯|%led,|%ledswitch",
     "maqueen.IR_read|block": "红外的值",
-    "maqueen.ServoRun|block": "舵机|%index|角度|%angle"
+    "maqueen.ServoRun|block": "舵机|%index|角度|%angle",
+    "maqueen.IR_read_version|block": "获取固件版本"
 }
