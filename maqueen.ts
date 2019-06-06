@@ -109,7 +109,7 @@ namespace maqueen {
     }
 
     //% weight=10
-    //% blockId=IR_read_version block="Get firmware version"
+    //% blockId=IR_read_version block="Get product information"
     export function IR_read_version(): string {
         maqueenInit()
         pins.i2cWriteNumber(0x10, 50, NumberFormat.UInt8BE);
