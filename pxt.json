@@ -15,6 +15,7 @@
         "RemoteIR.h",
         "TransmitterIR.cpp",
         "TransmitterIR.h",
+        "_locales/fr/maqueen-strings.json",
         "_locales/zh/maqueen-strings.json"
     ],
     "testFiles": [
