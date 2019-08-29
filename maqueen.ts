@@ -26,7 +26,9 @@ namespace maqueen {
         //% blockId="M1" block="M1"
         M1 = 0,
         //% blockId="M2" block="M2"
-        M2 = 1
+        M2 = 1,
+        //% blockId="All" block="All"
+        All = 2
     }
 
     export enum aServos {
@@ -122,7 +124,7 @@ namespace maqueen {
         }
         return version
     }
-    
+
     function IR_callback(a: Action): void {
         maqueencb = a
         IrPressEvent += 1
@@ -149,9 +151,12 @@ namespace maqueen {
 
         basic.pause(50)
 
+        let x = Math.round(d / 42);
+        let y = Math.round(d / 1);
         switch (unit) {
-            case PingUnit.Centimeters: return d / 42;
-            default: return d;
+
+            case PingUnit.Centimeters: return x;
+            default: return y;
         }
     }
 
@@ -164,13 +169,24 @@ namespace maqueen {
         let buf = pins.createBuffer(3);
         if (index == 0) {
             buf[0] = 0x00;
+            buf[1] = direction;
+            buf[2] = speed;
+            pins.i2cWriteBuffer(0x10, buf);
         }
         if (index == 1) {
             buf[0] = 0x02;
+            buf[1] = direction;
+            buf[2] = speed;
+            pins.i2cWriteBuffer(0x10, buf);
         }
-        buf[1] = direction;
-        buf[2] = speed;
-        pins.i2cWriteBuffer(0x10, buf);
+        if (index == 2) {
+            buf[0] = 0x00;
+            buf[1] = direction;
+            buf[2] = speed;
+            pins.i2cWriteBuffer(0x10, buf);
+            buf[0] = 0x02;
+            pins.i2cWriteBuffer(0x10, buf);
+        }
     }
 
     //% weight=20
@@ -180,27 +196,35 @@ namespace maqueen {
         let buf = pins.createBuffer(3);
         if (motors == 0) {
             buf[0] = 0x00;
+            buf[1] = 0;
+            buf[2] = 0;
+            pins.i2cWriteBuffer(0x10, buf);
         }
         if (motors == 1) {
             buf[0] = 0x02;
+            buf[1] = 0;
+            buf[2] = 0;
+            pins.i2cWriteBuffer(0x10, buf);
         }
-        buf[1] = 0;
-        buf[2] = 0;
-        pins.i2cWriteBuffer(0x10, buf);
-    }
 
-    //% weight=10
-    //% blockId=motor_motorStopAll block="Motor Stop All"
-    export function motorStopAll(): void {
-        let buf = pins.createBuffer(3);
-        buf[0] = 0x00;
-        buf[1] = 0;
-        buf[2] = 0;
-        pins.i2cWriteBuffer(0x10, buf);
-        buf[0] = 0x02;
-        pins.i2cWriteBuffer(0x10, buf);
-    }
+        if (motors == 2) {
+            buf[0] = 0x00;
+            buf[1] = 0;
+            buf[2] = 0;
+            pins.i2cWriteBuffer(0x10, buf);
+            buf[0] = 0x02;
+            pins.i2cWriteBuffer(0x10, buf);
+        }
 
+    }
+    /*
+        //% weight=10
+        //% blockId=motor_motorStopAll block="Motor Stop All"
+        export function motorStopAll(): void {
+            let buf = pins.createBuffer(3);
+            
+        }
+    */
     //% weight=20
     //% blockId=read_Patrol block="Read Patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
