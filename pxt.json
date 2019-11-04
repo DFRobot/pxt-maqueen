@@ -1,6 +1,6 @@
 {
     "name": "maqueen",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
@@ -13,13 +13,13 @@
         "ReceiverIR.cpp",
         "ReceiverIR.h",
         "RemoteIR.h",
-        "TransmitterIR.cpp",
-        "TransmitterIR.h",
-        "_locales/zh/maqueen-strings.json"
+        "_locales/zh/maqueen-strings.json",
+        "shims.d.ts",
+        "test.ts",
+		"README.md"
     ],
-    "testFiles": [
-        "tests.ts"
-    ],
+    "testFiles": [],
     "public": true,
-    "installedVersion": "workspace:ddacbe7f-d46f-4553-84c3-c1e296d0d687"
+    "installedVersion": "workspace:5a418ea9-a7b7-495d-7b4d-2ba9ced0bb66",
+    "preferredEditor": "tsprj"
 }

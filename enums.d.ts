@@ -1,7 +1,7 @@
 // Auto-generated. Do not edit.
 
 
-    declare enum Pins {
+    declare const enum Pins {
     P0 = 3,
     P1 = 2,
     P2 = 1,
@@ -24,7 +24,7 @@
     }
 
 
-    declare enum RemoteButton {
+    declare const enum RemoteButton {
     Power = 0x00,
     VolUp = 0x01,
     FuncStop = 0x02,
@@ -47,8 +47,6 @@
     Eight = 0x19,
     Nine = 0x1a,
     }
-    
-
 declare namespace maqueenIR {
 }
 
