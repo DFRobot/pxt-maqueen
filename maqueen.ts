@@ -150,23 +150,23 @@ namespace Maqueen {
     //% weight=95
     export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
         let d
-        
+
         pins.digitalWritePin(DigitalPin.P1, 0);
-        if (pins.digitalReadPin(DigitalPin.P2) == 0){
+        if (pins.digitalReadPin(DigitalPin.P2) == 0) {
             pins.digitalWritePin(DigitalPin.P1, 1);
             pins.digitalWritePin(DigitalPin.P1, 0);
             d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);
-        }else{
+        } else {
             pins.digitalWritePin(DigitalPin.P1, 0);
             pins.digitalWritePin(DigitalPin.P1, 1);
             d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);
         }
-        let x = d/59;
-        if(x<=0||x>500){
+        let x = d / 59;
+        if (x <= 0 || x > 500) {
             return 0;
-        } 
+        }
         switch (unit) {
-            case PingUnit.Centimeters: return x
+            case PingUnit.Centimeters: return Math.round(x);
             default: return Math.idiv(d, 2.54);
         }
     }
