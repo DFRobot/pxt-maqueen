@@ -8,7 +8,7 @@
  * @copyright    MIT Lesser General Public License
  * 
  * @author [email](jie.tang@dfrobot.com)
- * @version  V0.1
+ * @version  V0.1.2
  * @date  2019-10-08
 */
 
@@ -20,14 +20,12 @@ let alreadyInit = 0
 let IrPressEvent = 0
 const MOTER_ADDRESSS = 0x10
 
-
 enum PingUnit {
     //% block="cm"
     Centimeters,
     //% block="μs"
     MicroSeconds
 }
-
 
 //% weight=10 color=#008B00 icon="\uf136" block="Maqueen"
 namespace Maqueen {
@@ -150,7 +148,6 @@ namespace Maqueen {
     //% weight=95
     export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
         let d
-
         pins.digitalWritePin(DigitalPin.P1, 0);
         if (pins.digitalReadPin(DigitalPin.P2) == 0) {
             pins.digitalWritePin(DigitalPin.P1, 1);
@@ -161,7 +158,7 @@ namespace Maqueen {
             pins.digitalWritePin(DigitalPin.P1, 1);
             d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);
         }
-        let x = d / 59;
+        let x = d / 39;
         if (x <= 0 || x > 500) {
             return 0;
         }
@@ -169,6 +166,7 @@ namespace Maqueen {
             case PingUnit.Centimeters: return Math.round(x);
             default: return Math.idiv(d, 2.54);
         }
+
     }
 
 
@@ -178,7 +176,7 @@ namespace Maqueen {
     //% speed.min=0 speed.max=255
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
     //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
-    export function MotorRun(index: Motors, direction: Dir, speed: number): void {
+    export function motorRun(index: Motors, direction: Dir, speed: number): void {
         let buf = pins.createBuffer(3);
         if (index == 0) {
             buf[0] = 0x00;
@@ -205,7 +203,7 @@ namespace Maqueen {
     //% weight=20
     //% blockId=motor_motorStop block="motor stop|%motors"
     //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
-    export function MotorStop(motors: Motors): void {
+    export function motorStop(motors: Motors): void {
         let buf = pins.createBuffer(3);
         if (motors == 0) {
             buf[0] = 0x00;
@@ -234,7 +232,7 @@ namespace Maqueen {
     //% weight=20
     //% blockId=read_Patrol block="read patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
-    export function ReadPatrol(patrol: Patrol): number {
+    export function readPatrol(patrol: Patrol): number {
         if (patrol == Patrol.PatrolLeft) {
             return pins.digitalReadPin(DigitalPin.P13)
         } else if (patrol == Patrol.PatrolRight) {
@@ -248,7 +246,7 @@ namespace Maqueen {
     //% blockId=writeLED block="led|%led|LEDswitch|%ledswitch"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
-    export function WriteLED(led: LED, ledswitch: LEDswitch): void {
+    export function writeLED(led: LED, ledswitch: LEDswitch): void {
         if (led == LED.LEDLeft) {
             pins.digitalWritePin(DigitalPin.P8, ledswitch)
         } else if (led == LED.LEDRight) {
@@ -262,7 +260,7 @@ namespace Maqueen {
     //% blockId=servo_ServoRun block="servo|%index|angle|%angle"
     //% angle.min=0 angle.max=180
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
-    export function ServoRun(index: Servos, angle: number): void {
+    export function servoRun(index: Servos, angle: number): void {
         let buf = pins.createBuffer(2);
         if (index == 0) {
             buf[0] = 0x14;
