@@ -1,6 +1,6 @@
 {
-  "Maqueen.Dir.CCW|block": "CCW",
-  "Maqueen.Dir.CW|block": "CW",
+  "Maqueen.Dir.CCW|block": "Contra-relógio",
+  "Maqueen.Dir.CW|block": "Relógio",
   "Maqueen.IR_callbackUser|block": "em Infravermelhos recebido",
   "Maqueen.IR_read_version|block": "obet informação do produto",
   "Maqueen.IR_read|block": "ler infravermelhos",
