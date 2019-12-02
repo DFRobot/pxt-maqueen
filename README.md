@@ -9,9 +9,10 @@ Date:   2019.October
 
 ## Add extension
 
-open your microbit makecode project, in Extension, paste  
-(https://github.com/DFRobot/pxt-maqueen)
-to search box then search.
+open your microbit makecode project, in Extension, 
+paste  (https://github.com/DFRobot/pxt-maqueen) to 
+search box then search.
+
 Get the module here  
 (https://www.dfrobot.com.cn/goods-1802.html)
 ## Basic usage
