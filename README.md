@@ -1,7 +1,7 @@
  
 # Maqueen
 
-Maqueen[Maqueen is an easy-to-use programming educational Robot](https://www.dfrobot.com.cn/goods-1802.html)
+[Maqueen is an easy-to-use programming educational Robot](https://www.dfrobot.com.cn/goods-1802.html)
 
 ## Add extension
 
