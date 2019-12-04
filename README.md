@@ -13,53 +13,53 @@ Get the module here
 (https://www.dfrobot.com.cn/goods-1802.html)
 ## Basic usage
 
-* Set the motion direction and speed of Maqueen motor
+* Set the direction and speed of Maqueen motor
 
 ```blocks
-Maqueen.MotorRun(Maqueen.Motors.M1, Maqueen.Dir.CW, 120)
-Maqueen.MotorRun(Maqueen.Motors.M2, Maqueen.Dir.CCW, 120)
+ maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 120)
+ maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 120)
 ```
 
-* Read the Maqueen ultrasound data
+* Read ultrasonic sensor
 
 ```blocks
-basic.showNumber(Maqueen.Ultrasonic(PingUnit.Centimeters))
+basic.showNumber(maqueen.Ultrasonic(PingUnit.Centimeters))
 ```
 
 * Set the  Maqueen servos 
 
 ```blocks
-Maqueen.ServoRun(Maqueen.Servos.S1, 90)
+maqueen.servoRun(maqueen.Servos.S1, 90)
 ```
 
-* Set the  Maqueen  motor stop
+* Stop the Maqueen motor 
 
 ```blocks
-Maqueen.MotorStop(Maqueen.Motors.M1)
+maqueen.motorStop(maqueen.Motors.M1)
 ```
 
-* Read patrol sensor data
+* Read line tracking sensor
 
 ```blocks
-basic.showNumber(Maqueen.ReadPatrol(Maqueen.Patrol.PatrolLeft))
+serial.writeNumber(maqueen.readPatrol(maqueen.Patrol.PatrolLeft))
 ```
 
-* Set LED light switch
+* Turn on/off the LEDs
 
 ```blocks
-Maqueen.WriteLED(Maqueen.LED.LEDLeft, Maqueen.LEDswitch.turnOn)
+maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
 ```
 
-* Read IR sensor data
+* Read IR sensor 
 
 ```blocks
-basic.showNumber(Maqueen.IR_read())
+basic.showNumber(maqueen.IR_read())
 ```
 
 * Read the version number
 
 ```blocks
-basic.showString(Maqueen.IR_read_version())
+basic.showString(maqueen.IR_read_version())
 ```
 
 ## License

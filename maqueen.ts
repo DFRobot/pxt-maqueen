@@ -52,9 +52,9 @@ namespace maqueen {
     }
 
     export enum Dir {
-        //% blockId="CW" block="CW"
+        //% blockId="CW" block="Forward"
         CW = 0x0,
-        //% blockId="CCW" block="CCW"
+        //% blockId="CCW" block="Backward"
         CCW = 0x1
     }
 
@@ -73,9 +73,9 @@ namespace maqueen {
     }
 
     export enum LEDswitch {
-        //% blockId="turnOn" block="turnOn"
+        //% blockId="turnOn" block="ON"
         turnOn = 0x01,
-        //% blockId="turnOff" block="turnOff"
+        //% blockId="turnOff" block="OFF"
         turnOff = 0x00
     }
 
@@ -117,7 +117,7 @@ namespace maqueen {
     }
 
     //% weight=10
-    //% blockId=IR_read block="read IR"
+    //% blockId=IR_read block="read IR key"
     export function IR_read(): number {
         maqueenInit()
         return getParam()
@@ -144,7 +144,7 @@ namespace maqueen {
         onPressEvent(IrPressEvent, maqueencb)
     }
 
-    //% blockId=ultrasonic_sensor block="ultrasonic distance unit |%unit "
+    //% blockId=ultrasonic_sensor block="read ultrasonic sensor |%unit "
     //% weight=95
     export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
         let d
@@ -172,7 +172,7 @@ namespace maqueen {
 
 
     //% weight=90
-    //% blockId=motor_MotorRun block="motor|%index|dir|%Dir|speed|%speed"
+    //% blockId=motor_MotorRun block="motor|%index|move|%Dir|at speed|%speed"
     //% speed.min=0 speed.max=255
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
     //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
@@ -201,7 +201,7 @@ namespace maqueen {
     }
 
     //% weight=20
-    //% blockId=motor_motorStop block="motor stop|%motors"
+    //% blockId=motor_motorStop block="motor |%motors stop"
     //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
     export function motorStop(motors: Motors): void {
         let buf = pins.createBuffer(3);
@@ -230,7 +230,7 @@ namespace maqueen {
     }
 
     //% weight=20
-    //% blockId=read_Patrol block="read patrol|%patrol"
+    //% blockId=read_Patrol block="read |%patrol line tracking sensor"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
     export function readPatrol(patrol: Patrol): number {
         if (patrol == Patrol.PatrolLeft) {
@@ -243,10 +243,10 @@ namespace maqueen {
     }
 
     //% weight=20
-    //% blockId=writeLED block="led|%led|LEDswitch|%ledswitch"
+    //% blockId=writeLED block="trun|%ledswitch|%led|LEDlight"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
-    export function writeLED(led: LED, ledswitch: LEDswitch): void {
+    export function writeLED(ledswitch: LEDswitch, led: LED): void {
         if (led == LED.LEDLeft) {
             pins.digitalWritePin(DigitalPin.P8, ledswitch)
         } else if (led == LED.LEDRight) {
