@@ -8,7 +8,7 @@
  * @copyright    MIT Lesser General Public License
  * 
  * @author [email](jie.tang@dfrobot.com)
- * @version  V0.1.2
+ * @version  V1.0.0
  * @date  2019-10-08
 */
 
@@ -28,7 +28,7 @@ enum PingUnit {
 }
 
 //% weight=10 color=#008B00 icon="\uf136" block="Maqueen"
-namespace Maqueen {
+namespace maqueen {
 
     export class Packeta {
         public mye: string;

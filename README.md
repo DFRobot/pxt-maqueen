@@ -1,11 +1,7 @@
  
 # Maqueen
 
-This is a MakeCode graphical programming education robot.
-
-Author: tangjie  
-Date:   2019.October  
-  
+Maqueen is an easy-to-use programming educational Robot.
 
 ## Add extension
 
