@@ -23,7 +23,7 @@ const MOTER_ADDRESSS = 0x10
 enum PingUnit {
     //% block="cm"
     Centimeters,
-    //% block="μs"
+    //% block="μm"
     MicroSeconds
 }
 
