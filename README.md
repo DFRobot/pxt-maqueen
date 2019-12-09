@@ -48,7 +48,7 @@ serial.writeNumber(maqueen.readPatrol(maqueen.Patrol.PatrolLeft))
 maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
 ```
 
-* Read IR sensor 
+* Read IR sensor value
 
 ```blocks
 basic.showNumber(maqueen.IR_read())

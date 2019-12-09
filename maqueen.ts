@@ -8,7 +8,7 @@
  * @copyright    MIT Lesser General Public License
  * 
  * @author [email](jie.tang@dfrobot.com)
- * @version  V1.0.0
+ * @version  V1.0.1
  * @date  2019-10-08
 */
 
@@ -116,12 +116,20 @@ namespace maqueen {
         });
     }
 
+    /**
+     * Read IR sensor value.
+     */
+
     //% weight=10
     //% blockId=IR_read block="read IR key"
     export function IR_read(): number {
         maqueenInit()
         return getParam()
     }
+
+    /**
+     * Read the version number.
+     */
 
     //% weight=10
     //% blockId=IR_read_version block="get product information"
@@ -143,6 +151,10 @@ namespace maqueen {
         IrPressEvent += 1
         onPressEvent(IrPressEvent, maqueencb)
     }
+
+    /**
+     * Read ultrasonic sensor.
+     */
 
     //% blockId=ultrasonic_sensor block="read ultrasonic sensor |%unit "
     //% weight=95
@@ -169,7 +181,9 @@ namespace maqueen {
 
     }
 
-
+    /**
+     * Set the direction and speed of Maqueen motor.
+     */
 
     //% weight=90
     //% blockId=motor_MotorRun block="motor|%index|move|%Dir|at speed|%speed"
@@ -200,6 +214,9 @@ namespace maqueen {
         }
     }
 
+    /**
+     * Stop the Maqueen motor.
+     */
     //% weight=20
     //% blockId=motor_motorStop block="motor |%motors stop"
     //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
@@ -229,6 +246,10 @@ namespace maqueen {
 
     }
 
+    /**
+     * Read line tracking sensor.
+     */
+
     //% weight=20
     //% blockId=read_Patrol block="read |%patrol line tracking sensor"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
@@ -241,6 +262,10 @@ namespace maqueen {
             return -1
         }
     }
+
+    /**
+     * Turn on/off the LEDs.
+     */
 
     //% weight=20
     //% blockId=writeLED block="trun|%ledswitch|%led|LEDlight"
@@ -255,6 +280,10 @@ namespace maqueen {
             return
         }
     }
+
+    /**
+     * Set the Maqueen servos.
+     */
 
     //% weight=90
     //% blockId=servo_ServoRun block="servo|%index|angle|%angle"
