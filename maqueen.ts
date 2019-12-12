@@ -8,7 +8,7 @@
  * @copyright    MIT Lesser General Public License
  * 
  * @author [email](jie.tang@dfrobot.com)
- * @version  V1.0.1
+ * @version  V1.0.2
  * @date  2019-10-08
 */
 
@@ -268,7 +268,7 @@ namespace maqueen {
      */
 
     //% weight=20
-    //% blockId=writeLED block="trun|%ledswitch|%led|LEDlight"
+    //% blockId=writeLED block="turn|%ledswitch|%led|LEDlight"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
     export function writeLED(ledswitch: LEDswitch, led: LED): void {
