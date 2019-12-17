@@ -3,12 +3,6 @@
 
 [Maqueen is an easy-to-use programming educational Robot](https://www.dfrobot.com.cn/goods-1802.html)
 
-## Add extension
-
-open your microbit makecode project, in Extension, 
-paste  (https://github.com/DFRobot/pxt-maqueen) to 
-search box then search.
-
 ## Basic usage
 
 * Set the direction and speed of Maqueen motor

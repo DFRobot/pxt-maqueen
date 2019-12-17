@@ -21,6 +21,5 @@
         "test.ts"
     ],
     "public": true,
-    "preferredEditor": "tsprj",
-    "installedVersion": "workspace:2462d827-3d4e-4688-1e5c-a7385548fa34"
+    "preferredEditor": "tsprj"
 }
