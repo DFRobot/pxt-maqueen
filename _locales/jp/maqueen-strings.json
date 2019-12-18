@@ -11,13 +11,13 @@
     "maqueen.Dir.CCW|block": "反転",
     "maqueen.motorStop|block": "モーター 停止|%motors",
     "maqueen.motorStopAll|block": "全モーター停止",
-    "maqueen.MotorRun|block": "モーター|%index|方向|%Dir|速さ|%speed",
+    "maqueen.motorRun|block": "モーター|%index|方向|%Dir|速さ|%speed",
     "maqueen.IR_callbackUser|block": "IRで受信したとき",
     "maqueen.Ultrasonic|block": "超音波センサー値|%unit",
     "maqueen.readPatrol|block": "ラインセンサー値|%patrol",
-    "maqueen.writeLED|block": "LED|%led,|%ledswitch",
+    "maqueen.writeLED|block": "|%ledswitch|%ledLEDlighr",
     "maqueen.IR_read|block": "IR値",
-    "maqueen.ServoRun|block": "サーボモーター|%index|角度|%angle",
+    "maqueen.servoRun|block": "サーボモーター|%index|角度|%angle",
     "maqueen.IR_read_version|block": "IRバージョン",
 	"maqueen.Motors.All|block": "すべて"
 }

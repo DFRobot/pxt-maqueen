@@ -11,9 +11,9 @@
         "enums.d.ts",
         "_locales/zh/maqueen-strings.json",
         "_locales/pt/maqueen-strings.json",
-	"_locales/jp/maqueen-strings.json",
-	"_locales/fr/maqueen-strings.json",
-	"_locales/es/maqueen-strings.json",
+        "_locales/jp/maqueen-strings.json",
+        "_locales/fr/maqueen-strings.json",
+        "_locales/es/maqueen-strings.json",
         "shims.d.ts",
         "README.md"
     ],
