@@ -14,6 +14,7 @@
         "ReceiverIR.h",
         "RemoteIR.h",
         "_locales/zh/maqueen-strings.json",
+        "_locales/pt/maqueen-strings.json",
         "shims.d.ts",
         "README.md"
     ],
