@@ -268,10 +268,10 @@ namespace maqueen {
      */
 
     //% weight=20
-    //% blockId=writeLED block="turn|%ledswitch|%led|LEDlight"
+    //% blockId=writeLED block="LEDlight |%led turn |%ledswitch"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
-    export function writeLED(ledswitch: LEDswitch, led: LED): void {
+    export function writeLED(led: LED,ledswitch: LEDswitch): void {
         if (led == LED.LEDLeft) {
             pins.digitalWritePin(DigitalPin.P8, ledswitch)
         } else if (led == LED.LEDRight) {
