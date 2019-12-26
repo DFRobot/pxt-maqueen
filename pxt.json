@@ -9,6 +9,10 @@
     "files": [
         "maqueen.ts",
         "enums.d.ts",
+		 "maqueenIR.cpp",
+        "ReceiverIR.cpp",
+        "ReceiverIR.h",
+        "RemoteIR.h",
         "_locales/zh-cn/maqueen-strings.json",
         "_locales/zh-tw/maqueen-strings.json",
         "_locales/pt/maqueen-strings.json",
