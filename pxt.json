@@ -9,7 +9,7 @@
     "files": [
         "maqueen.ts",
         "enums.d.ts",
-		 "maqueenIR.cpp",
+        "maqueenIR.cpp",
         "ReceiverIR.cpp",
         "ReceiverIR.h",
         "RemoteIR.h",
