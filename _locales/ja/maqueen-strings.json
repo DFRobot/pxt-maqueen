@@ -15,7 +15,7 @@
     "maqueen.IR_callbackUser|block": "IRで受信したとき",
     "maqueen.Ultrasonic|block": "超音波センサー値|%unit",
     "maqueen.readPatrol|block": "ラインセンサー値|%patrol",
-    "maqueen.writeLED|block": "|%ledswitch|%ledLEDlighr",
+    "maqueen.writeLED|block": "LEDライト|%ledswitch|%led",
     "maqueen.IR_read|block": "IR値",
     "maqueen.servoRun|block": "サーボモーター|%index|角度|%angle",
     "maqueen.IR_read_version|block": "IRバージョン",
