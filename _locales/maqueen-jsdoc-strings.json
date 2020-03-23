@@ -1,5 +1,0 @@
-{
-  "maqueenIR.initIR": "initialises local variablesssss",
-  "maqueenIR.onPressEvent": "button pushed.",
-  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@version  V0.1.2\n@date  2019-10-08"
-}
