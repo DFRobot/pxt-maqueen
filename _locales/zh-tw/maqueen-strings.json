@@ -1,0 +1,23 @@
+{
+    "maqueen.Motors.M1|block": "左側",
+    "maqueen.Motors.M2|block": "右側",
+    "maqueen.Patrol.PatrolLeft|block": "左側",
+    "maqueen.Patrol.PatrolRight|block": "右側",
+    "maqueen.LEDswitch.turnOn|block": "開",
+    "maqueen.LEDswitch.turnOff|block": "關",
+    "maqueen.LED.LEDLeft|block": "左側",
+    "maqueen.LED.LEDRight|block": "右側",
+    "maqueen.Dir.CW|block": "正轉",
+    "maqueen.Dir.CCW|block": "反轉",
+    "maqueen.motorStop|block": "馬達停止|%motors",
+    "maqueen.motorStopAll|block": "停止所有电机",
+    "maqueen.motorRun|block": "馬達|%index|方向|%Dir|速度|%speed",
+    "maqueen.IR_callbackUser|block": "當接收到紅外線時運行",
+    "maqueen.Ultrasonic|block": "超音波距離|%unit",
+    "maqueen.readPatrol|block": "循跡感測器|%patrol",
+    "maqueen.writeLED|block": "LED燈|%led|%ledswitch  ",
+    "maqueen.IR_read|block": "紅外線數值",
+    "maqueen.servoRun|block": "舵機|%index|角度|%angle",
+    "maqueen.IR_read_version|block": "獲取產品訊息",
+    "maqueen.Motors.All|block": "全部"
+}

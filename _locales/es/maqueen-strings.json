@@ -1,0 +1,23 @@
+{
+    "maqueen.Motors.M1|block": "izquierdo",
+    "maqueen.Motors.M2|block": "derecho",
+    "maqueen.Patrol.PatrolLeft|block": "izquierdo",
+    "maqueen.Patrol.PatrolRight|block": "derecho",
+    "maqueen.LEDswitch.turnOn|block": "encender",
+    "maqueen.LEDswitch.turnOff|block": "apagar",
+    "maqueen.LED.LEDLeft|block": "derecho",
+    "maqueen.LED.LEDRight|block": "izquierdo",
+    "maqueen.Dir.CW|block": "avanzar",
+    "maqueen.Dir.CCW|block": "retroceder",
+    "maqueen.motorStop|block": "Parar motor|%motors",
+    "maqueen.motorStopAll|block": "Parar motores",
+    "maqueen.motorRun|block": "Motor|%index|sentido|%Dir|velocidad|%speed",
+    "maqueen.IR_callbackUser|block": "Al recibir IR",
+    "maqueen.Ultrasonic|block": "Leer ultrasonidos en |%unit",
+    "maqueen.readPatrol|block": "Leer siguelínea|%patrol",
+    "maqueen.writeLED|block": "LED|%led|%ledswitch",
+    "maqueen.IR_read|block": "Leer IR",
+    "maqueen.servoRun|block": "Servomotor|%index|ángulo|%angle",
+    "maqueen.IR_read_version|block": "versión IR",
+    "maqueen.Motors.All|block": "ambos"
+}

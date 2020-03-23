@@ -1,0 +1,25 @@
+{
+  "maqueen.Dir.CCW|block": "Contra-relógio",
+  "maqueen.Dir.CW|block": "Relógio",
+  "maqueen.IR_callbackUser|block": "em Infravermelhos recebido",
+  "maqueen.IR_read_version|block": "obet informação do produto",
+  "maqueen.IR_read|block": "ler infravermelhos",
+  "maqueen.LED.LEDLeft|block": "esquerda",
+  "maqueen.LED.LEDRight|block": "direita",
+  "maqueen.LEDswitch.turnOff|block": "desligar",
+  "maqueen.LEDswitch.turnOn|block": "ligar",
+  "maqueen.Motors.All|block": "todos",
+  "maqueen.Motors.M1|block": "esquerda",
+  "maqueen.Motors.M2|block": "direita",
+  "maqueen.Patrol.PatrolLeft|block": "esquerda",
+  "maqueen.Patrol.PatrolRight|block": "direita",
+  "maqueen.Servos.S1|block": "S1",
+  "maqueen.Servos.S2|block": "S2",
+  "maqueen.Ultrasonic|block": "distância em unidades |%unit ",
+  "maqueen.motorRun|block": "motor|%index|direção|%Dir|velocidade|%speed",
+  "maqueen.motorStop|block": "parar motor|%motors",
+  "maqueen.readPatrol|block": "ler batedor|%patrol",
+  "maqueen.servoRun|block": "servo|%index|angulo|%angle",
+  "maqueen.writeLED|block": "leds|%led|estado:|%ledswitch"
+ 
+}
