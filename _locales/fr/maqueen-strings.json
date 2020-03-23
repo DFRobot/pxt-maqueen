@@ -1,4 +1,6 @@
 {
+  "PingUnit.Centimeters|block": "cm",
+  "PingUnit.MicroSeconds|block": "μs",
   "maqueen.Dir.CCW|block": "antihoraire",
   "maqueen.Dir.CW|block": "horaire",
   "maqueen.IR_callbackUser|block": "quand l'IR reçoit",
