@@ -8,7 +8,6 @@
  * @copyright    MIT Lesser General Public License
  * 
  * @author [email](jie.tang@dfrobot.com)
- * @version  V1.0.2
  * @date  2019-10-08
 */
 
@@ -23,12 +22,22 @@ const MOTER_ADDRESSS = 0x10
 enum PingUnit {
     //% block="cm"
     Centimeters,
-    //% block="μm"
-    MicroSeconds
+}
+enum state {
+        state1=0x10,
+        state2=0x11,
+        state3=0x20,
+        state4=0x21
+    }
+interface KV {
+    key: state;
+    action: Action;
 }
 
 //% weight=10 color=#008B00 icon="\uf136" block="Maqueen"
 namespace maqueen {
+
+    let kbCallback: KV[] = []
 
     export class Packeta {
         public mye: string;
@@ -63,6 +72,19 @@ namespace maqueen {
         PatrolLeft = 13,
         //% blockId="patrolRight" block="right"
         PatrolRight = 14
+    }
+
+    export enum Patrol1 {
+        //% blockId="patrolLeft" block="left"
+        PatrolLeft = 0x10,
+        //% blockId="patrolRight" block="right"
+        PatrolRight = 0x20
+    }
+    export enum Voltage {
+        //%block="high"
+        High = 0x01,
+        //% block="low"
+        Low = 0x00
     }
 
     export enum LED {
@@ -102,7 +124,7 @@ namespace maqueen {
         alreadyInit = 1
     }
 
-    //% weight=100
+    //% weight=2
     //% blockGap=50
     //% blockId=IR_callbackUser block="on IR received"
     export function IR_callbackUser(maqueencb: (message: number) => void) {
@@ -271,7 +293,7 @@ namespace maqueen {
     //% blockId=writeLED block="LEDlight |%led turn |%ledswitch"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
-    export function writeLED(led: LED,ledswitch: LEDswitch): void {
+    export function writeLED(led: LED, ledswitch: LEDswitch): void {
         if (led == LED.LEDLeft) {
             pins.digitalWritePin(DigitalPin.P8, ledswitch)
         } else if (led == LED.LEDRight) {
@@ -300,5 +322,45 @@ namespace maqueen {
         buf[1] = angle;
         pins.i2cWriteBuffer(0x10, buf);
     }
+
+     /**
+     * Line tracking sensor event function
+     */
+    //% weight=2
+    //% blockId=kb_event block="on|%value line tracking sensor|%vi"
+    export function ltEvent(value: Patrol1, vi: Voltage, a: Action) {
+         let state = value + vi;
+        serial.writeNumber(state)
+        let item: KV = { key: state, action: a };
+        kbCallback.push(item);
+    }
+    let x:number
+    let i:number = 1;
+    function patorlState():number{
+        switch(i){
+            case 1: x = pins.digitalReadPin(DigitalPin.P13) == 0 ? 0x10:0;break;
+            case 2: x = pins.digitalReadPin(DigitalPin.P13) == 1 ? 0x11:0;break;
+            case 3: x = pins.digitalReadPin(DigitalPin.P14) == 0 ? 0x20:0;break;
+            default:x = pins.digitalReadPin(DigitalPin.P14) == 1 ? 0x21:0;break;
+        }
+        i+=1;
+        if(i==5)i=1;
+        
+        return x;
+    }
+
+     basic.forever(() => {
+        if (kbCallback != null) {
+            let sta = patorlState();
+            if (sta != 0) {
+                for (let item of kbCallback) {
+                    if (item.key == sta) {
+                        item.action();
+                    }
+                }
+            }
+        }
+        basic.pause(50);
+    })
 
 }

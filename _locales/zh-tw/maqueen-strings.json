@@ -19,5 +19,10 @@
     "maqueen.IR_read|block": "紅外線數值",
     "maqueen.servoRun|block": "舵機|%index|角度|%angle",
     "maqueen.IR_read_version|block": "獲取產品訊息",
-    "maqueen.Motors.All|block": "全部"
+    "maqueen.Motors.All|block": "全部",
+    "maqueen.Patrol1.PatrolLeft|block": "左側",
+    "maqueen.Patrol1.PatrolRight|block": "右側",
+    "maqueen.Voltage.High|block": "高",
+    "maqueen.Voltage.Low|block": "低",
+    "maqueen.ltEvent|block": "當|%value巡線傳感器|%vi"
 }

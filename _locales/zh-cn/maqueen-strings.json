@@ -19,5 +19,10 @@
     "maqueen.IR_read|block": "红外的值",
     "maqueen.servoRun|block": "舵机|%index|角度|%angle",
     "maqueen.IR_read_version|block": "获取产品信息",
-    "maqueen.Motors.All|block": "全部"
+    "maqueen.Motors.All|block": "全部",
+    "maqueen.Patrol1.PatrolLeft|block":"左侧",
+    "maqueen.Patrol1.PatrolRight|block":"右侧",
+    "maqueen.Voltage.High|block":"高",
+    "maqueen.Voltage.Low|block":"低",
+    "maqueen.ltEvent|block":"当|%value巡线传感器|%vi"
 }
