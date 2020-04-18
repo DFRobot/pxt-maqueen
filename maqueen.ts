@@ -143,7 +143,7 @@ namespace maqueen {
      */
 
     //% weight=10
-    //% blockId=IR_read block="read IR key"
+    //% blockId=IR_read block="read IR key value"
     export function IR_read(): number {
         maqueenInit()
         return getParam()
