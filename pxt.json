@@ -21,10 +21,10 @@
         "_locales/ja/maqueen-strings.json",
         "_locales/fr/maqueen-strings.json",
         "_locales/es/maqueen-strings.json",
-        "_locales/ru/maqueen-strings.json",
-        "_locales/ru/maqueen-jsdoc-strings.json",
         "shims.d.ts",
-        "README.md"
+        "README.md",
+        "_locales/ru/maqueen-strings.json",
+        "_locales/ru/maqueen-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
