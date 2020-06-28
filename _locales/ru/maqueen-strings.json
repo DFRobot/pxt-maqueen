@@ -18,7 +18,7 @@
   "maqueen.Patrol1.PatrolRight|block": "правый",
   "maqueen.Servos.S1|block": "S1",
   "maqueen.Servos.S2|block": "S2",
-  "maqueen.Ultrasonic|block": "ультрозвуковой датчик|%unit ",
+  "maqueen.Ultrasonic|block": "ультразвуковой датчик|%unit ",
   "maqueen.Voltage.High|block": "белый",
   "maqueen.Voltage.Low|block": "чёрный",
   "maqueen.ltEvent|block": "следование по линии|%value|%vi",
