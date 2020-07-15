@@ -36,9 +36,7 @@ interface KV {
 
 //% weight=10 color=#008B00 icon="\uf136" block="Maqueen"
 namespace maqueen {
-
     let kbCallback: KV[] = []
-
     export class Packeta {
         public mye: string;
         public myparam: number;
