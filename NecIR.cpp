@@ -1,11 +1,13 @@
-#include "MicroBit.h"
+#include "pxt.h"
 
-MicroBit uBit;
+//% color=50 weight=80
+//% icon="\uf1eb"
+namespace maqueenIRV2 { 
 int ir_code = 0x00;
 int ir_addr = 0x00;
+int data;
 
-
-int logic_value(){//判断逻辑值“0”和“1”子函数
+int logic_value(){//判断逻辑值"0"和"1"子函数
     uint32_t lasttime = system_timer_current_time_us();
     uint32_t nowtime;
     while(!uBit.io.P16.getDigitalValue());//低等待
@@ -46,6 +48,7 @@ void pulse_deal(){
 }
 
 void remote_decode(void){
+    data = 0x00;
     uint32_t lasttime = system_timer_current_time_us();
     uint32_t nowtime;
     while(uBit.io.P16.getDigitalValue()){//高电平等待
@@ -64,24 +67,25 @@ void remote_decode(void){
         lasttime = system_timer_current_time_us();
         if((lasttime - nowtime) > 4000 && (lasttime - nowtime) < 5000){//4.5ms,接收到了红外协议头且是新发送的数据。开始解析逻辑0和1
             pulse_deal();
-            uBit.serial.printf("addr=0x%X,code = 0x%X\r\n",ir_addr,ir_code);
-            return;
+            //uBit.serial.printf("addr=0x%X,code = 0x%X\r\n",ir_addr,ir_code);
+            data = ir_code;
+            return;//ir_code;
         }else if((lasttime - nowtime) > 2000 && (lasttime - nowtime) < 2500){//2.25ms,表示发的跟上一个包一致
             while(!uBit.io.P16.getDigitalValue());//低等待
             nowtime = system_timer_current_time_us();
             if((nowtime - lasttime) > 500 && (nowtime - lasttime) < 700){//560us
-                uBit.serial.printf("addr=0x%X,code = 0x%X\r\n",ir_addr,ir_code);
-                return;
+                //uBit.serial.printf("addr=0x%X,code = 0x%X\r\n",ir_addr,ir_code);
+                data = ir_code;
+                return;//ir_code;
             }
         }
     }
 }
 
-int main()
-{
+ //% 
+int irCode(){
+    remote_decode();
+    return data;
+}
 
-    uBit.init();
-    while(1){
-        remote_decode();
-    }
 }
