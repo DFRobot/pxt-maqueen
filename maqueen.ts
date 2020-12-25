@@ -256,13 +256,16 @@ function valuotokeyConversion():number{
         let d
         pins.digitalWritePin(DigitalPin.P1, 0);
         if (pins.digitalReadPin(DigitalPin.P2) == 0) {
-            pins.digitalWritePin(DigitalPin.P1, 1);
             pins.digitalWritePin(DigitalPin.P1, 0);
-            d = readPulseIn(1);//pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);
+            //sleep_us(2);
+            pins.digitalWritePin(DigitalPin.P1, 1);
+            //sleep_us(10);
+            pins.digitalWritePin(DigitalPin.P1, 0);
+            d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);//readPulseIn(1);
         } else {
             pins.digitalWritePin(DigitalPin.P1, 0);
             pins.digitalWritePin(DigitalPin.P1, 1);
-            d = readPulseIn(0);//pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);
+            d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);//readPulseIn(0);
         }
         let x = d / 39;
         if (x <= 0 || x > 500) {
@@ -311,6 +314,7 @@ function valuotokeyConversion():number{
     /**
      * Stop the Maqueen motor.
      */
+    
     //% weight=20
     //% blockId=motor_motorStop block="motor |%motors stop"
     //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
