@@ -242,6 +242,10 @@ function valuotokeyConversion():number{
         onPressEvent(IrPressEvent, maqueencb)
     }
 
+    //% advanced=true shim=maqueenIRV2::readPulseIn
+        function readPulseIn(status:number): number {
+            return 0;
+        }
     /**
      * Read ultrasonic sensor.
      */
@@ -254,11 +258,11 @@ function valuotokeyConversion():number{
         if (pins.digitalReadPin(DigitalPin.P2) == 0) {
             pins.digitalWritePin(DigitalPin.P1, 1);
             pins.digitalWritePin(DigitalPin.P1, 0);
-            d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);
+            d = readPulseIn(1);//pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);
         } else {
             pins.digitalWritePin(DigitalPin.P1, 0);
             pins.digitalWritePin(DigitalPin.P1, 1);
-            d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);
+            d = readPulseIn(0);//pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);
         }
         let x = d / 39;
         if (x <= 0 || x > 500) {
@@ -431,5 +435,6 @@ function valuotokeyConversion():number{
         }
         basic.pause(50);
     })
+
 
 }
