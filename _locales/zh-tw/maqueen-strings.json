@@ -24,5 +24,7 @@
     "maqueen.Patrol1.PatrolRight|block": "右側",
     "maqueen.Voltage.High|block": "高",
     "maqueen.Voltage.Low|block": "低",
-    "maqueen.ltEvent|block": "當|%value巡線傳感器|%vi"
+    "maqueen.ltEvent|block": "當|%value巡線傳感器|%vi",
+    "maqueen.IR_readV2|block": "紅外線數值",
+    "maqueen.IR_callbackUserV2|block": "當接收到紅外線時運行"
 }
