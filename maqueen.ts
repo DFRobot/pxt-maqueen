@@ -254,6 +254,8 @@ function valuotokeyConversion():number{
     //% weight=95
     export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
         let d
+        pins.digitalWritePin(DigitalPin.P1, 1);
+        basic.pause(1)
         pins.digitalWritePin(DigitalPin.P1, 0);
         if (pins.digitalReadPin(DigitalPin.P2) == 0) {
             pins.digitalWritePin(DigitalPin.P1, 0);
