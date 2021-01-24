@@ -25,7 +25,9 @@
         "shims.d.ts",
         "README.md",
         "_locales/ru/maqueen-strings.json",
-        "_locales/ru/maqueen-jsdoc-strings.json"
+        "_locales/ru/maqueen-jsdoc-strings.json",
+        "_locales/nl/maqueen-strings.json",
+        "_locales/nl/maqueen-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

@@ -1,0 +1,14 @@
+{
+  "maqueen.IR_read": "Lees IR sensor waarde", 
+  "maqueen.IR_read_version": "Lees versie nummer",
+  "maqueen.Ultrasonic": "Lees ultrasonic sensor.",
+  "maqueen.ltEvent": "Lijnvolgsensor event functie",
+  "maqueen.motorRun": "Stel de richting en sneheid van de Maqueen motor in.",
+  "maqueen.motorStop": "Stop de Maqueen motor.",
+  "maqueen.readPatrol": "Lees lijnvolgsensor.",
+  "maqueen.servoRun": "Stel de Maqueen servos in.",
+  "maqueen.writeLED": "Zet LEDs aan/uit.",
+  "maqueenIR.initIR": "Initialiseert lokale variabelen",
+  "maqueenIR.onPressEvent": "knop ingedrukt.",
+  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+}
