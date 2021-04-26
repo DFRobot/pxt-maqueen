@@ -163,6 +163,7 @@ namespace maqueen {
     //% group="micro:bit(v2)"
     //% blockId=IR_readv2 block="read IR key value"
     export function IR_readV2(): number {
+        pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
         return valuotokeyConversion();
     }
 
@@ -171,6 +172,7 @@ namespace maqueen {
     //% blockId=IR_callbackUserv2 block="on IR received"
     //% draggableParameters
     export function IR_callbackUserV2(cb: (message: number) => void) {
+        pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
         state = 1;
         control.onEvent(11, 22, function() {
             cb(irstate)
