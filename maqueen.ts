@@ -150,6 +150,7 @@ namespace maqueen {
 
     let irstate:number;
     let state:number;
+    let data1:number;
      /**
      * Read IR sensor value V2.
      */
@@ -175,7 +176,8 @@ namespace maqueen {
         pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
         state = 1;
         control.onEvent(11, 22, function() {
-            cb(irstate)
+            cb(data1)
+
         }) 
     }
 
@@ -213,11 +215,12 @@ function valuotokeyConversion():number{
         if(state == 1){
             irstate = valuotokeyConversion();
             if(irstate != -1){
+                data1=irstate
                 control.raiseEvent(11, 22)
             }
         }
         
-        basic.pause(20);
+        basic.pause(50);
     })
     /**
      * Read the version number.
