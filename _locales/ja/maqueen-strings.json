@@ -11,7 +11,7 @@
     "maqueen.Dir.CCW|block": "後ろに",
     "maqueen.motorStop|block": "%motors|のモーターを止める",
     "maqueen.motorStopAll|block": "全モーターを止める",
-    "maqueen.motorRun|block": "%index|のモーターを|%Dir|に|%speed|回す",
+    "maqueen.motorRun|block": "%index|のモーターを|%Dir|に速度|%speed|で回す",
     "maqueen.IR_callbackUser|block": "IRで受信したとき",
     "maqueen.Ultrasonic|block": "超音波センサー|%unit|の値",
     "maqueen.readPatrol|block": "ラインセンサー|%patrol|の値", 
