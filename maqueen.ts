@@ -254,35 +254,58 @@ function valuotokeyConversion():number{
     /**
      * Read ultrasonic sensor.
      */
-
+    let state1 = 0;
     //% blockId=ultrasonic_sensor block="read ultrasonic sensor |%unit "
     //% weight=95
     export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
+        let data;
+        let i = 0;
+        data = readUlt(unit);
+        if(state1  == 1 && data != 0){
+            state1 =0;
+        }
+        if(data != 0){
+        }else{
+            if(state1 == 0){
+                do{
+                    data = readUlt(unit);
+                    i++;
+                    if(i > 3){
+                        state1 =1;
+                        data =500;
+                        break;
+                        }
+                }while(data == 0)
+            }
+        }
+        if(data == 0)
+            data = 500
+        return data;
+
+    }
+    function readUlt(unit:number):number{
         let d
         pins.digitalWritePin(DigitalPin.P1, 1);
         basic.pause(1)
         pins.digitalWritePin(DigitalPin.P1, 0);
         if (pins.digitalReadPin(DigitalPin.P2) == 0) {
             pins.digitalWritePin(DigitalPin.P1, 0);
-            //sleep_us(2);
             pins.digitalWritePin(DigitalPin.P1, 1);
-            //sleep_us(10);
+            basic.pause(20)
             pins.digitalWritePin(DigitalPin.P1, 0);
-            d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 58);//readPulseIn(1);
+            d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 500 * 58);//readPulseIn(1);
         } else {
-            pins.digitalWritePin(DigitalPin.P1, 0);
             pins.digitalWritePin(DigitalPin.P1, 1);
-            d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, maxCmDistance * 58);//readPulseIn(0);
+            pins.digitalWritePin(DigitalPin.P1, 0);
+            basic.pause(20)
+            pins.digitalWritePin(DigitalPin.P1, 0);
+            d = pins.pulseIn(DigitalPin.P2, PulseValue.Low, 500 * 58);//readPulseIn(0);
         }
-        let x = d / 39;
-        if (x <= 0 || x > 500) {
-            return 0;
-        }
+        let x = d / 59;
         switch (unit) {
             case PingUnit.Centimeters: return Math.round(x);
             default: return Math.idiv(d, 2.54);
         }
-
     }
 
     /**
