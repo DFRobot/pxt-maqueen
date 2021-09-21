@@ -1,4 +1,6 @@
 {
+    "PingUnit.Centimeters|block": "cm",
+    "PingUnit.MicroSeconds|block": "μs",
     "maqueen.Motors.M1|block": "左側",
     "maqueen.Motors.M2|block": "右側",
     "maqueen.Patrol.PatrolLeft|block": "左側",
@@ -13,11 +15,18 @@
     "maqueen.motorStopAll|block": "すべてのモーターを止める",
     "maqueen.motorRun|block": "%index|のモーターを|%Dir|に|%speed|の速度で回す",
     "maqueen.IR_callbackUser|block": "IRで受信したとき",
-    "maqueen.Ultrasonic|block": "超音波センサー|%unit|の値",
-    "maqueen.readPatrol|block": "ラインセンサー|%patrol|の値", 
+    "maqueen.Ultrasonic|block": "超音波センサーの値 |%unit|",
+    "maqueen.readPatrol|block": "|%patrol|のラインセンサーの値", 
     "maqueen.writeLED|block": "%ledswitch|のLEDを|%led",
     "maqueen.IR_read|block": "IR値",
-    "maqueen.servoRun|block": "サーボモーター|%index|の角度を角度|%angle|にする",
+    "maqueen.servoRun|block": "サーボモーター|%index|の角度を|%angle|度にする",
     "maqueen.IR_read_version|block": "IRバージョン",
-	"maqueen.Motors.All|block": "すべて"
+    "maqueen.Motors.All|block": "すべて",
+    "maqueen.Servos.S1|block": "S1",
+    "maqueen.Servos.S2|block": "S2",
+    "maqueen.Voltage.High|block":"High（1）",
+    "maqueen.Voltage.Low|block":"Low（0）",
+    "maqueen.ltEvent|block":"%value|のラインセンサーの値が|%vi|のとき",
+    "maqueen.Patrol1.PatrolLeft|block": "左側",
+    "maqueen.Patrol1.PatrolRight|block": "右側"
 }
