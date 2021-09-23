@@ -1,6 +1,6 @@
 {
     "name": "maqueen",
-    "version": "1.5.9",
+    "version": "1.5.10",
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
@@ -19,14 +19,15 @@
         "_locales/zh-cn/maqueen-strings.json",
         "_locales/zh-tw/maqueen-strings.json",
         "_locales/pt/maqueen-strings.json",
-        "_locales/ja/maqueen-strings.json",
         "_locales/fr/maqueen-strings.json",
         "_locales/es/maqueen-strings.json",
         "_locales/nb/maqueen-strings.json",
         "shims.d.ts",
         "README.md",
         "_locales/ru/maqueen-strings.json",
-        "_locales/ru/maqueen-jsdoc-strings.json"
+        "_locales/ru/maqueen-jsdoc-strings.json",
+        "_locales/ja/maqueen-strings.json",
+        "_locales/ja/maqueen-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
