@@ -1,0 +1,15 @@
+{
+  "maqueen.IR_read": "赤外線リモコンからのコード",
+  "maqueen.IR_read_version": "ロボットのバージョン番号",
+  "maqueen.IR_callbackUser": "リモコンボタンが押されたときの動作",
+  "maqueen.Ultrasonic": "超音波変換器からの値",
+  "maqueen.ltEvent": "指定したライン監視センサーが特定の色を感知したときの動作",
+  "maqueen.motorRun": "モーターの回転方向と速度をセットする ／ モーター：左, 右, すべて ／ 回転方向：前, 後ろ ／ 速さ：0～255",
+  "maqueen.motorStop": "モーターを止める",
+  "maqueen.readPatrol": "ライン監視センサーからの値",
+  "maqueen.servoRun": "サーボモーターを特定の角度に回転させる ／ ポート：S1、S2 ／ 角度：0～180度",
+  "maqueen.writeLED": "LEDライトのオン/オフ",
+  "maqueenIR.initIR": "赤外線リモコン受信機を指定ポートに接続する",
+  "maqueenIR.onPressEvent": "リモコンの指定ボタンが押されたときの動作",
+  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+}
