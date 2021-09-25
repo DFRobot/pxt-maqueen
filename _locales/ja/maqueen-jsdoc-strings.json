@@ -1,15 +1,15 @@
 {
-  "maqueen.IR_read": "赤外線リモコンからのコード",
-  "maqueen.IR_read_version": "ロボットのバージョン番号",
+  "maqueen.IR_read": "赤外線リモコンからのコードを取得します。",
+  "maqueen.IR_read_version": "ロボットの製品情報およびバージョンを取得します。",
   "maqueen.IR_callbackUser": "赤外線リモコン信号を受信したときに実行されます。",
   "maqueen.Ultrasonic": "超音波センサーの値を読み取ります。",
   "maqueen.ltEvent": "ラインセンサー（右または左）が、指定した値（High（1）またはLow（0））を検出したときに実行されます。",
   "maqueen.motorRun": "モーター（右、左または両方）を設定した回転方向と速さで回します。",
   "maqueen.motorStop": "モーター（右、左または両方）を止めます。",
-  "maqueen.readPatrol": "ラインセンサーの値を読み取ります。ラインセンサーの値は反射してくる赤外線の量で決まります。明るい色の床では赤外線の反射が多いためHigh（1）になり、暗い色の床では赤外線の反射が少ないためLow（0）になります。",
+  "maqueen.readPatrol": "ラインセンサーの値を読み取ります。ラインセンサーの値は反射してくる赤外線の量で決まります。反射が多いときはHigh（1）になり、反射が少ないときはLow（0）になります。",
   "maqueen.servoRun": "サーボモーター（S1またはS2）を指定した角度（0～180度）に回転させます。",
-  "maqueen.writeLED": "LED（右または左）を点灯したり、消灯したりします。",
+  "maqueen.writeLED": "LED（右または左）をつけたり、消したりします。",
   "maqueenIR.initIR": "赤外線リモコン受光器を指定ポートに接続します。",
-  "maqueenIR.onPressEvent": "赤外線リモコンの指定ボタンが押されたときに実行されます。",
+  "maqueenIR.onPressEvent": "赤外線リモコンの指定したボタンが押されたときに実行されます。",
   "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
 }
