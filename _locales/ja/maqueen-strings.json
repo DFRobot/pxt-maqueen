@@ -1,5 +1,5 @@
 {
-  "PingUnit.Centimeters|block": "距離（cm）",
+  "PingUnit.Centimeters|block": "cm",
   "maqueen.Motors.M1|block": "左",
   "maqueen.Motors.M2|block": "右",
   "maqueen.Motors.All|block": "両方",
