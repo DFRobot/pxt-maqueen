@@ -136,7 +136,6 @@ namespace maqueen {
             maqueencb(packet.myparam);
         });
     }
-
     /**
      * Read IR sensor value.
      */
