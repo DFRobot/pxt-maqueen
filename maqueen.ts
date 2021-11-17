@@ -34,7 +34,7 @@ interface KV {
     action: Action;
 }
 
-//% weight=10 color=#008B00 icon="\uf136" block="Maqueen"
+//% weight=100 color=#008B00 icon="\uf136" block="Maqueen"
 //% groups=['micro:bit(v2)']
 namespace maqueen {
     let kbCallback: KV[] = []
@@ -100,101 +100,13 @@ namespace maqueen {
         turnOff = 0x00
     }
 
-    //% advanced=true shim=maqueenIR::initIR
-    function initIR(pin: Pins): void {
-        return
-    }
 
-    //% advanced=true shim=maqueenIR::onPressEvent
-    function onPressEvent(btn: RemoteButton, body: Action): void {
-        return
-    }
-
-    //% advanced=true shim=maqueenIR::getParam
-    function getParam(): number {
-        return 0
-    }
-
-    function maqueenInit(): void {
-        if (alreadyInit == 1) {
-            return
-        }
-        initIR(Pins.P16)
-        alreadyInit = 1
-    }
-
-    //% weight=2
-    //% blockGap=50
-    //% blockId=IR_callbackUser block="on IR received"
-    export function IR_callbackUser(maqueencb: (message: number) => void) {
-        maqueenInit();
-        IR_callback(() => {
-            const packet = new Packeta();
-            packet.mye = maqueene;
-            maqueenparam = getParam();
-            packet.myparam = maqueenparam;
-            maqueencb(packet.myparam);
-        });
-    }
-    /**
-     * Read IR sensor value.
-     */
-
-    //% weight=10
-    //% blockId=IR_read block="read IR key value"
-    export function IR_read(): number {
-        maqueenInit()
-        return getParam()
-    }
-
-    let irstate:number;
-    let state:number;
-    let data1:number;
-     /**
-     * Read IR sensor value V2.
-     */
-
-    //% advanced=true shim=maqueenIRV2::irCode
-    function irCode(): number {
-        return 0;
-    }
     
-    //% weight=5
-    //% group="micro:bit(v2)"
-    //% blockId=IR_readv2 block="read IR key value"
-    export function IR_readV2(): number {
-        pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
-        return valuotokeyConversion();
-    }
 
-    //% weight=2
-    //% group="micro:bit(v2)"
-    //% blockId=IR_callbackUserv2 block="on IR received"
-    //% draggableParameters
-    export function IR_callbackUserV2(cb: (message: number) => void) {
-        pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
-        state = 1;
-        control.onEvent(11, 22, function() {
-            cb(data1)
+   
 
-        }) 
-    }
 
-function valuotokeyConversion():number{
-    return (irCode() & 0XFF);
-}
-
-    basic.forever(() => {
-        if(state == 1){
-            irstate = valuotokeyConversion();
-            if(irstate != -1){
-                data1=irstate
-                control.raiseEvent(11, 22)
-            }
-        }
-        
-        basic.pause(50);
-    })
+   
     /**
      * Read the version number.
      */
@@ -202,7 +114,6 @@ function valuotokeyConversion():number{
     //% weight=10
     //% blockId=IR_read_version block="get product information"
     export function IR_read_version(): string {
-        maqueenInit()
         pins.i2cWriteNumber(0x10, 50, NumberFormat.UInt8BE);
         let dataLen = pins.i2cReadNumber(0x10, NumberFormat.UInt8BE);
         pins.i2cWriteNumber(0x10, 51, NumberFormat.UInt8BE);
@@ -214,16 +125,6 @@ function valuotokeyConversion():number{
         return version
     }
 
-    function IR_callback(a: Action): void {
-        maqueencb = a
-        IrPressEvent += 1
-        onPressEvent(IrPressEvent, maqueencb)
-    }
-
-    //% advanced=true shim=maqueenIRV2::readPulseIn
-        function readPulseIn(status:number): number {
-            return 0;
-        }
     /**
      * Read ultrasonic sensor.
      */

@@ -4,18 +4,12 @@
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "ir": "github:tangjie133/pxt-DFRobot_IR#v0.0.7"
     },
     "files": [
         "maqueen.ts",
         "enums.d.ts",
-        "maqueenIR.cpp",
-        "ReceiverIR.cpp",
-        "NecIR.cpp",
-        "ReceiverIR.h",
-        "RemoteIR.h",
-        "TransmitterIR.cpp",
-        "TransmitterIR.h",
         "_locales/zh-cn/maqueen-strings.json",
         "_locales/zh-tw/maqueen-strings.json",
         "_locales/pt/maqueen-strings.json",
@@ -34,7 +28,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "4.0.11",
+        "target": "4.0.16",
         "targetId": "microbit"
     },
     "supportedTargets": [
