@@ -4,8 +4,7 @@
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "ir": "github:tangjie133/pxt-DFRobot_IR#v0.0.7"
+        "core": "*"
     },
     "files": [
         "maqueen.ts",
