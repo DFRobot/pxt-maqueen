@@ -22,6 +22,8 @@ const MOTER_ADDRESSS = 0x10
 enum PingUnit {
     //% block="cm"
     Centimeters,
+    //% block="raw"
+    Raw,
 }
 enum state {
         state1=0x10,
@@ -178,6 +180,7 @@ namespace maqueen {
         let x = d / 59;
         switch (unit) {
             case PingUnit.Centimeters: return Math.round(x);
+            case PingUnit.Raw: return Math.round(d);
             default: return Math.idiv(d, 2.54);
         }
     }
