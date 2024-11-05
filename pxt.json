@@ -5,7 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "ir": "github:tangjie133/pxt-DFRobot_IR#v0.2.0"
+        "ir": "github:tangjie133/pxt-DFRobot_IR#v0.2.0",
+        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.2"
     },
     "files": [
         "maqueen.ts",
@@ -21,7 +22,8 @@
         "_locales/ru/maqueen-strings.json",
         "_locales/ru/maqueen-jsdoc-strings.json",
         "_locales/ja/maqueen-strings.json",
-        "_locales/ja/maqueen-jsdoc-strings.json"
+        "_locales/ja/maqueen-jsdoc-strings.json",
+        "_locales/zh-CN/README.md"
     ],
     "testFiles": [
         "test.ts"
