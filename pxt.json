@@ -23,6 +23,12 @@
         "_locales/ru/maqueen-jsdoc-strings.json",
         "_locales/ja/maqueen-strings.json",
         "_locales/ja/maqueen-jsdoc-strings.json",
+        "_locales/zh-cn/maqueen-jsdoc-strings.json",
+        "_locales/zh-tw/maqueen-jsdoc-strings.json",
+        "_locales/pt/maqueen-jsdoc-strings.json",
+        "_locales/fr/maqueen-jsdoc-strings.json",
+        "_locales/es/maqueen-jsdoc-strings.json",
+        "_locales/nb/maqueen-jsdoc-strings.json",
         "_locales/zh-CN/README.md"
     ],
     "testFiles": [
