@@ -1,15 +1,19 @@
 {
-  "maqueen.IR_read": "Код с инфрокрасного пульта.",
-  "maqueen.IR_read_version": "Номер версии робота.",
-  "maqueen.IR_callbackUser": "Выполняет действия при получении с пульта кода нажатой кнопки",
-  "maqueen.Ultrasonic": "Значение с ультразвукового датчика.",
-  "maqueen.ltEvent": "Выполняет действия при приходе определённого цвета с указанного датчика следования по линии.",
-  "maqueen.motorRun": "Устанавливает направление и скорость мотора.",
-  "maqueen.motorStop": "Останавливает мотор.",
-  "maqueen.readPatrol": "Значение с датчика следования по линии.",
-  "maqueen.servoRun": "Поворачивает сервопривод на определенный угол.",
-  "maqueen.writeLED": "Включает/выключает лампочки.",  
-  "maqueenIR.initIR": "Подключает инфракрасный приёмник команд с пульта к выбранному порту",
-  "maqueenIR.onPressEvent": "Выполняет действия при нажатии указанной кнопки на пульте.",
-  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+  "maqueen.IR_read": "返回红外传感器接收到的值.",
+  "maqueen.IR_read_version": "版本信息.",
+  "maqueen.IR_callbackUser": "执行红外传感器接收到数据时的操作",
+  "maqueen.Ultrasonic": "返回超声波传感器测量的距离.",
+  "maqueen.ltEvent": ".",
+  "maqueen.motorRun": "设置电机的方向和速度.",
+  "maqueen.motorStop": "停止电机转动.",
+  "maqueen.readPatrol": "读取巡线传感器",
+  "maqueen.servoRun": "控制舵机角度.",
+  "maqueen.writeLED": "打开/关闭LED.",  
+  "maqueenIR.initIR": "初始化红外传感器",
+  "maqueenIR.onPressEvent": "当红外传感器接收到数据时.",
+
+  "Maqueen_V5.BleCmdDefault": "接收到的值对应关系如下 :1:前进，2:后退，3:左转，4:右转，5:RGB红色，6:RGB绿色，7:RGB蓝色，8:RGB紫色，9:RGB黄色，10:RGB青色，11:RGB白色，12:RGB黑色，13:舵机1正转，14:舵机1反转，15:舵机1正转，16:舵机2反转",    
+  "Maqueen_V5.BleGetCmd|block": "获取蓝牙命令",
+  "Maqueen_V5.BlecallbackUser|block": "当接收到蓝牙命令"
+  
 }

@@ -1,4 +1,7 @@
 {
+  "Maqueen_V5.BleCmdDefault": "受信した値の対応関係は次の通りです: 1:前進、2:後退、3:左折、4:右折、5:RGB赤、6:RGB緑、7:RGB青、8:RGB紫、9:RGB黄、10:RGBシアン、11:RGB白、12:RGB黒、13:サーボ1正転、14:サーボ1逆転、15:サーボ1正転、16:サーボ2逆転",
+  "Maqueen_V5.BleGetCmd|block": "Bluetoothコマンドを取得",
+  "Maqueen_V5.BlecallbackUser|block": "Bluetoothコマンドを受信したとき",
   "maqueen.IR_read": "赤外線リモコンからのコードを取得します。",
   "maqueen.IR_read_version": "ロボットの製品情報およびバージョンを取得します。",
   "maqueen.IR_callbackUser": "赤外線リモコン信号を受信したときに実行されます。",

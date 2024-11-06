@@ -1,15 +1,19 @@
 {
-  "maqueen.IR_read": "Код с инфрокрасного пульта.",
-  "maqueen.IR_read_version": "Номер версии робота.",
-  "maqueen.IR_callbackUser": "Выполняет действия при получении с пульта кода нажатой кнопки",
-  "maqueen.Ultrasonic": "Значение с ультразвукового датчика.",
-  "maqueen.ltEvent": "Выполняет действия при приходе определённого цвета с указанного датчика следования по линии.",
-  "maqueen.motorRun": "Устанавливает направление и скорость мотора.",
-  "maqueen.motorStop": "Останавливает мотор.",
-  "maqueen.readPatrol": "Значение с датчика следования по линии.",
-  "maqueen.servoRun": "Поворачивает сервопривод на определенный угол.",
-  "maqueen.writeLED": "Включает/выключает лампочки.",  
-  "maqueenIR.initIR": "Подключает инфракрасный приёмник команд с пульта к выбранному порту",
-  "maqueenIR.onPressEvent": "Выполняет действия при нажатии указанной кнопки на пульте.",
-  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+    "Maqueen_V5.BleCmdDefault": "Полученные значения и их соответствия следующие: 1: вперед, 2: назад, 3: налево, 4: направо, 5: RGB красный, 6: RGB зеленый, 7: RGB синий, 8: RGB фиолетовый, 9: RGB желтый, 10: RGB циановый, 11: RGB белый, 12: RGB черный, 13: серво 1 вперед, 14: серво 1 назад, 15: серво 1 вперед, 16: серво 2 назад.",
+    "Maqueen_V5.BleGetCmd|block": "Получить Bluetooth команды",
+    "Maqueen_V5.BlecallbackUser|block": "Когда получена Bluetooth команда",  
+    "maqueen.IR_read": "Код с инфрокрасного пульта.",
+    "maqueen.IR_read_version": "Номер версии робота.",
+    "maqueen.IR_callbackUser": "Выполняет действия при получении с пульта кода нажатой кнопки",
+    "maqueen.Ultrasonic": "Значение с ультразвукового датчика.",
+    "maqueen.ltEvent": "Выполняет действия при приходе определённого цвета с указанного датчика следования по линии.",
+    "maqueen.motorRun": "Устанавливает направление и скорость мотора.",
+    "maqueen.motorStop": "Останавливает мотор.",
+    "maqueen.readPatrol": "Значение с датчика следования по линии.",
+    "maqueen.servoRun": "Поворачивает сервопривод на определенный угол.",
+    "maqueen.writeLED": "Включает/выключает лампочки.",
+    "maqueenIR.initIR": "Подключает инфракрасный приёмник команд с пульта к выбранному порту",
+    "maqueenIR.onPressEvent": "Выполняет действия при нажатии указанной кнопки на пульте.",
+    "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+
 }

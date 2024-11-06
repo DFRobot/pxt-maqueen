@@ -1,15 +1,5 @@
 {
-  "maqueen.IR_read": "Код с инфрокрасного пульта.",
-  "maqueen.IR_read_version": "Номер версии робота.",
-  "maqueen.IR_callbackUser": "Выполняет действия при получении с пульта кода нажатой кнопки",
-  "maqueen.Ultrasonic": "Значение с ультразвукового датчика.",
-  "maqueen.ltEvent": "Выполняет действия при приходе определённого цвета с указанного датчика следования по линии.",
-  "maqueen.motorRun": "Устанавливает направление и скорость мотора.",
-  "maqueen.motorStop": "Останавливает мотор.",
-  "maqueen.readPatrol": "Значение с датчика следования по линии.",
-  "maqueen.servoRun": "Поворачивает сервопривод на определенный угол.",
-  "maqueen.writeLED": "Включает/выключает лампочки.",  
-  "maqueenIR.initIR": "Подключает инфракрасный приёмник команд с пульта к выбранному порту",
-  "maqueenIR.onPressEvent": "Выполняет действия при нажатии указанной кнопки на пульте.",
-  "maqueencb": "@file pxt-maqueen/maqueen.ts\n@brief DFRobot's maqueen makecode library.\n@n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)\n@n This is a MakeCode graphical programming education robot.\n* @copyright    [DFRobot](http://www.dfrobot.com), 2016\n@copyright    MIT Lesser General Public License\n* @author [email](jie.tang@dfrobot.com)\n@date  2019-10-08"
+  "Maqueen_V5.BleCmdDefault": "Las correspondencias de los valores recibidos son las siguientes: 1: avanzar, 2: retroceder, 3: girar a la izquierda, 4: girar a la derecha, 5: RGB rojo, 6: RGB verde, 7: RGB azul, 8: RGB púrpura, 9: RGB amarillo, 10: RGB cian, 11: RGB blanco, 12: RGB negro, 13: servo 1 girar hacia adelante, 14: servo 1 girar hacia atrás, 15: servo 1 girar hacia adelante, 16: servo 2 girar hacia atrás",
+  "Maqueen_V5.BleGetCmd|block": "Obtener comandos Bluetooth",
+  "Maqueen_V5.BlecallbackUser|block": "Cuando se recibe el comando Bluetooth"
 }
