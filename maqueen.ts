@@ -547,22 +547,22 @@ namespace Maqueen_V5 {
         Black = 8
     }
     const enum BleCmd {
-        BLE_FORWARD = 1,         /**< advance */
-        BLE_BACKWARD = 2,         /**< astern */
-        BLE_LEFT = 3,             /**< turn left */
-        BLE_RIGHT = 4,           /**< turn right */
-        BLE_RGB_R = 5,           /**< Red */
-        BLE_RGB_G = 6,            /**< Green */
-        BLE_RGB_B = 7,           /**< Blue */
-        BLE_RGB_RB = 8,          /**< Purple */
-        BLE_RGB_RG = 9,          /**< Yellow */
-        BLE_RGB_GB = 10,         /**< Cyan */
-        BLE_RGB_RGB = 11,        /**< White */
-        BLE_RGB_OFF = 12,        /**< Off */
-        BLE_SERVO1_RIGHT = 13,   /**< servo1 turn right */
-        BLE_SERVO1_LEFT = 14,     /**< servo1 turn left */
-        BLE_SERVO2_RIGHT = 15,    /**< servo2 turn right */
-        BLE_SERVO2_LEFT = 16,    /**< servo2 turn left */
+        BleForward = 1,         /**< advance */
+        BleBackward = 2,         /**< astern */
+        BleLeft = 3,             /**< turn left */
+        BleRight = 4,           /**< turn right */
+        BleRgbR = 5,           /**< Red */
+        BleRgbG = 6,            /**< Green */
+        BleRgbB = 7,           /**< Blue */
+        BleRgbRB = 8,          /**< Purple */
+        BleRgbRG = 9,          /**< Yellow */
+        BleRgbGB = 10,         /**< Cyan */
+        BleRgbRGB = 11,        /**< White */
+        BleRgbOff = 12,        /**< Off */
+        BleServo1Right = 13,   /**< servo1 turn right */
+        BleServo1Left = 14,     /**< servo1 turn left */
+        BleServo2Right = 15,    /**< servo2 turn right */
+        BleServo2Left = 16,    /**< servo2 turn left */
     };
     const  MOTOR_0                    =0
     const  SPEED_0                    =1
@@ -1037,63 +1037,63 @@ namespace Maqueen_V5 {
     //% group="Maqueen_v5"
     export function BleCmdDefault(cmd: number){
         switch (cmd) {
-            case BleCmd.BLE_FORWARD:
+            case BleCmd.BleForward:
                 motorRun(Motors.All, Dir.CW,100);
                 basic.pause(100);
                 motorRun(Motors.All, Dir.CW, 0);
                 break;
-            case BleCmd.BLE_BACKWARD:
+            case BleCmd.BleBackward:
                 motorRun(Motors.All, Dir.CCW, 100);
                 basic.pause(100);
                 motorRun(Motors.All, Dir.CCW, 0);
                 break;
-            case BleCmd.BLE_LEFT:
+            case BleCmd.BleLeft:
                 motorRun(Motors.M2, Dir.CCW, 100);
                 basic.pause(100);
                 motorRun(Motors.All, Dir.CCW, 0);
                 break;
-            case BleCmd.BLE_RIGHT:
+            case BleCmd.BleRight:
                 motorRun(Motors.M1, Dir.CCW, 100);
                 basic.pause(100);
                 motorRun(Motors.All, Dir.CCW, 0);
                 break;
-            case BleCmd.BLE_RGB_R:
+            case BleCmd.BleRgbR:
                 setRgblLed(DirectionType.All, CarLightColors.Red);
                 break;
-            case BleCmd.BLE_RGB_G:
+            case BleCmd.BleRgbG:
                 setRgblLed(DirectionType.All, CarLightColors.Green);
                 break;
-            case BleCmd.BLE_RGB_B:
+            case BleCmd.BleRgbB:
                 setRgblLed(DirectionType.All, CarLightColors.Blue);
                 break;
-            case BleCmd.BLE_RGB_RB:
+            case BleCmd.BleRgbRB:
                 setRgblLed(DirectionType.All, CarLightColors.Purple);
                 break;
-            case BleCmd.BLE_RGB_RG:
+            case BleCmd.BleRgbRG:
                 setRgblLed(DirectionType.All, CarLightColors.Yellow);
                 break;
-            case BleCmd.BLE_RGB_GB:
+            case BleCmd.BleRgbGB:
                 setRgblLed(DirectionType.All, CarLightColors.Cyan);
                 break;
-            case BleCmd.BLE_RGB_RGB:
+            case BleCmd.BleRgbRGB:
                 setRgblLed(DirectionType.All, CarLightColors.White);
                 break;
-            case BleCmd.BLE_RGB_OFF:
+            case BleCmd.BleRgbOff:
                 setRgblLed(DirectionType.All, CarLightColors.Black);
                 break;
-            case BleCmd.BLE_SERVO1_RIGHT:
+            case BleCmd.BleServo1Right:
                 if (servo1_num < 180) servo1_num += 5;
                 servoRun(Servos.S1, servo1_num);
                 break;
-            case BleCmd.BLE_SERVO1_LEFT:
+            case BleCmd.BleServo1Left:
                 if (servo1_num > 0) servo1_num -= 5;
                 servoRun(Servos.S1, servo1_num);
                 break;
-            case BleCmd.BLE_SERVO2_RIGHT:
+            case BleCmd.BleServo2Right:
                 if (servo2_num <= 180) servo2_num += 5;
                 servoRun(Servos.S2, servo2_num);
                 break;
-            case BleCmd.BLE_SERVO2_LEFT:
+            case BleCmd.BleServo2Left:
                 if (servo2_num > 0) servo2_num -= 5;
                 servoRun(Servos.S2, servo2_num);
                 break;
