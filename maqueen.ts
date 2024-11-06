@@ -35,7 +35,7 @@ interface KV {
 }
 
 
-
+//%
 //% weight=100 color=#008B00 icon="\uf136" block="Maqueen v4"
 //% groups=['Maqueen_v4','Maqueen_v5']
 namespace maqueen {
@@ -934,12 +934,14 @@ namespace Maqueen_V5 {
     /**
      * Set RGB lights to flash
      * @param type to type ,eg: DirectionType.Left
-     * @param number of flashes
-     * @param Select the speed level enumeration
+     * @param num of flashes
+     * @param grade Select the speed level enumeration
+     * @param rgb Select color
      */
+    //% inlineInputMode=inline
     //% block="RGB Car Lights |%type Number of flashes |%number Level of flashes |%SpeedGrade color |%rgb"
     //% weight=11
-    //% number.min=0 number.max=255
+    //% num.min=0 num.max=255
     //% group="Maqueen_v5"
     export function setRgbBlink(type: DirectionType, num: number, grade: SpeedGrade, rgb: CarLightColors) {
         if (type == DirectionType.Left) {
@@ -963,7 +965,7 @@ namespace Maqueen_V5 {
     /**
      * Set the RGB light gradient
      * @param type to type ,eg: DirectionType.Left
-     * @param   speed  Motor speed control, eg:100
+     * @param  Select the speed level enumeration
      */
     //% block="RGB Car Lights |%type Level of change |%SpeedGrade"
     //% weight=11
