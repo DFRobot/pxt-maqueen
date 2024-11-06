@@ -564,50 +564,50 @@ namespace Maqueen_V5 {
         BleServo2Right = 15,    /**< servo2 turn right */
         BleServo2Left = 16,    /**< servo2 turn left */
     };
-    const  MOTOR_0                    =0
-    const  SPEED_0                    =1
-    const  MOTOR_1                    =2
-    const  SPEED_1                    =3
+     const  MOTOR_0                    =0
+     const  SPEED_0                    =1
+     const  MOTOR_1                    =2
+     const  SPEED_1                    =3
 
-    const  RGB_L                      =11
-    const  RGB_R                      =12
-    const  RGB_BLINK_NUM_L            =13
-    const  RGB_BLINK_GRADE_L          =14
-    const  RGB_BLINK_NUM_R            =15
-    const  RGB_BLINK_GRADE_R          =16
-    const  RGB_GRADUAL_CHANGE_GRADE_L =17
-    const  RGB_GRADUAL_CHANGE_GRADE_R =18
+     const  RGB_L                      =11
+     const  RGB_R                      =12
+     const  RGB_BLINK_NUM_L            =13
+     const  RGB_BLINK_GRADE_L          =14
+     const  RGB_BLINK_NUM_R            =15
+     const  RGB_BLINK_GRADE_R          =16
+     const  RGB_GRADUAL_CHANGE_GRADE_L =17
+     const  RGB_GRADUAL_CHANGE_GRADE_R =18
 
 
-    const  SERVO_1                    =20
-    const  SERVO_2                    =21
+     const  SERVO_1                    =20
+     const  SERVO_2                    =21
 
-    const  BLACK_ADC_STATE            =29
-    const  ADC_COLLECT_0              =30
-    const  ADC_COLLECT_1              =32
-    const  ADC_COLLECT_2              =34
-    const  ADC_COLLECT_3              =36
-    const  ADC_COLLECT_4              =38
+     const  BLACK_ADC_STATE            =29
+     const  ADC_COLLECT_0              =30
+     const  ADC_COLLECT_1              =32
+     const  ADC_COLLECT_2              =34
+     const  ADC_COLLECT_3              =36
+     const  ADC_COLLECT_4              =38
 
-    const  LIGHTL_H                   =41
-    const  LIGHTL_L                   =42
-    const  LIGHTR_H                   =43
-    const  LIGHTR_L                   =44
-    const  BATTERY_SET                =45
-    const  BATTERY                    =46
-    const  MOTOR_TYPE_H               =47
-    const  MOTOR_TYPE_L               =48
-    const  VERSON_LEN                 =50
-    const  VERSON_DATA                =51
-    const  MY_SYS_INIT                =70
-    const  LINE_WALKING               =71
-    const  LINE_SPEED_GRADE           =72
-    const  CAR_STATE                  =73
-    const  CROSS_DEFAULT              =75
-    const  T1_DEFAULT                 =76
-    const  T2_DEFAULT                 =77
-    const  T3_DEFAULT                 =78
-    const  BLECMD                     =80
+     const  LIGHTL_H                   =41
+     const  LIGHTL_L                   =42
+     const  LIGHTR_H                   =43
+     const  LIGHTR_L                   =44
+     const  BATTERY_SET                =45
+     const  BATTERY                    =46
+     const  MOTOR_TYPE_H               =47
+     const  MOTOR_TYPE_L               =48
+     const  VERSON_LEN                 =50
+     const  VERSON_DATA                =51
+     const  MY_SYS_INIT                =70
+     const  LINE_WALKING               =71
+     const  LINE_SPEED_GRADE           =72
+     const  CAR_STATE                  =73
+     const  CROSS_DEFAULT              =75
+     const  T1_DEFAULT                 =76
+     const  T2_DEFAULT                 =77
+     const  T3_DEFAULT                 =78
+     const  BLECMD                     =80
 
     /**
      *  Init I2C until success
@@ -1374,9 +1374,6 @@ namespace Maqueen_V5 {
 
         return (r << 16) + (g << 8) + b;
     }
-
-
-
 
 
 }
