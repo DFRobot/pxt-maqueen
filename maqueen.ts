@@ -432,11 +432,11 @@ namespace Maqueen_V5 {
     }
     export enum PatrolSpeed {
         //% block="1"
-        Speed1 = 1,
+        speed1 = 1,
         //% block="2"
-        Speed2 = 2,
+        speed2 = 2,
         //% block="3"
-        Speed3 = 3,
+        speed3 = 3,
     }
     export enum Motors {
         //% blockId="left motor" block="left"
@@ -463,15 +463,15 @@ namespace Maqueen_V5 {
     }
     export enum SpeedGrade {
         //% block="1"
-        Speed1 = 1,
+        speed1 = 1,
         //% block="2"
-        Speed2 = 2,
+        speed2 = 2,
         //% block="3"
-        Speed3 = 3,
+        speed3 = 3,
         //% block="4"
-        Speed4 = 4,
+        speed4 = 4,
         //% block="5"
-        Speed5 = 5
+        speed5 = 5
     }
 
     export enum Dir {
@@ -564,49 +564,49 @@ namespace Maqueen_V5 {
         BLE_SERVO2_RIGHT = 15,    /**< servo2 turn right */
         BLE_SERVO2_LEFT = 16,    /**< servo2 turn left */
     };
-  const         SPEED_0                    =1
-  const         MOTOR_1                    =2
-  const         SPEED_1                    =3
+    const  SPEED_0                    =1
+    const  MOTOR_1                    =2
+    const  SPEED_1                    =3
 
-  const         RGB_L                      =11
-  const         RGB_R                      =12
-  const         RGB_BLINK_NUM_L            =13
-  const         RGB_BLINK_GRADE_L          =14
-  const         RGB_BLINK_NUM_R            =15
-  const         RGB_BLINK_GRADE_R          =16
-  const         RGB_GRADUAL_CHANGE_GRADE_L =17
-  const         RGB_GRADUAL_CHANGE_GRADE_R =18
+    const  RGB_L                      =11
+    const  RGB_R                      =12
+    const  RGB_BLINK_NUM_L            =13
+    const  RGB_BLINK_GRADE_L          =14
+    const  RGB_BLINK_NUM_R            =15
+    const  RGB_BLINK_GRADE_R          =16
+    const  RGB_GRADUAL_CHANGE_GRADE_L =17
+    const  RGB_GRADUAL_CHANGE_GRADE_R =18
 
 
-  const         SERVO_1                    =20
-  const         SERVO_2                    =21
+    const  SERVO_1                    =20
+    const  SERVO_2                    =21
 
-  const         BLACK_ADC_STATE            =29
-  const         ADC_COLLECT_0              =30
-  const         ADC_COLLECT_1              =32
-  const         ADC_COLLECT_2              =34
-  const         ADC_COLLECT_3              =36
-  const         ADC_COLLECT_4              =38
+    const  BLACK_ADC_STATE            =29
+    const  ADC_COLLECT_0              =30
+    const  ADC_COLLECT_1              =32
+    const  ADC_COLLECT_2              =34
+    const  ADC_COLLECT_3              =36
+    const  ADC_COLLECT_4              =38
 
-  const         LIGHTL_H                   =41
-  const         LIGHTL_L                   =42
-  const         LIGHTR_H                   =43
-  const         LIGHTR_L                   =44
-  const         BATTERY_SET                =45
-  const         BATTERY                    =46
-  const         MOTOR_TYPE_H               =47
-  const         MOTOR_TYPE_L               =48
-  const         VERSON_LEN                 =50
-  const         VERSON_DATA                =51
-  const         MY_SYS_INIT                =70
-  const         LINE_WALKING               =71
-  const         LINE_SPEED_GRADE           =72
-  const         CAR_STATE                  =73
-  const         CROSS_DEFAULT              =75
-  const         T1_DEFAULT                 =76
-  const         T2_DEFAULT                 =77
-  const         T3_DEFAULT                 =78
-  const         BLECMD                     =80
+    const  LIGHTL_H                   =41
+    const  LIGHTL_L                   =42
+    const  LIGHTR_H                   =43
+    const  LIGHTR_L                   =44
+    const  BATTERY_SET                =45
+    const  BATTERY                    =46
+    const  MOTOR_TYPE_H               =47
+    const  MOTOR_TYPE_L               =48
+    const  VERSON_LEN                 =50
+    const  VERSON_DATA                =51
+    const  MY_SYS_INIT                =70
+    const  LINE_WALKING               =71
+    const  LINE_SPEED_GRADE           =72
+    const  CAR_STATE                  =73
+    const  CROSS_DEFAULT              =75
+    const  T1_DEFAULT                 =76
+    const  T2_DEFAULT                 =77
+    const  T3_DEFAULT                 =78
+    const  BLECMD                     =80
 
     /**
      *  Init I2C until success
@@ -615,17 +615,16 @@ namespace Maqueen_V5 {
     //% blockId=I2CInit block="initialize via I2C until success"
     //%group="Maqueen_v5"
     export function I2CInit(): void {
-        let Version_v = 0;
-        //V5 systemInit
+        let versionLen = 0;
         let allBuffer = pins.createBuffer(2);
         allBuffer[0] = 0x46;
         allBuffer[1] = 1;
-        pins.i2cWriteBuffer(I2CADDR, allBuffer);
+        pins.i2cWriteBuffer(I2CADDR, allBuffer); //V5 systemInit
         basic.pause(100);//waiting  reset
 
         pins.i2cWriteNumber(I2CADDR, 0x32, NumberFormat.Int8LE);
-        Version_v = pins.i2cReadNumber(I2CADDR, NumberFormat.Int8LE);
-        while (Version_v == 0) {
+        versionLen = pins.i2cReadNumber(I2CADDR, NumberFormat.Int8LE);
+        while (versionLen == 0) {
             basic.showLeds(`
                 # . . . #
                 . # . # .
@@ -635,8 +634,8 @@ namespace Maqueen_V5 {
                 `, 10)
             basic.pause(500)
             basic.clearScreen()
-            pins.i2cWriteNumber(0x10, 0x32, NumberFormat.Int8LE);
-            Version_v = pins.i2cReadNumber(I2CADDR, NumberFormat.Int8LE);
+            pins.i2cWriteNumber(I2CADDR, 0x32, NumberFormat.Int8LE);
+            versionLen = pins.i2cReadNumber(I2CADDR, NumberFormat.Int8LE);
         }
         basic.showLeds(`
                 . . . . .
@@ -668,7 +667,7 @@ namespace Maqueen_V5 {
             allBuffer[1] = 1
         else
             allBuffer[1] = 0;
-        allBuffer[0] = 0x47;
+        allBuffer[0] = LINE_WALKING;
         pins.i2cWriteBuffer(I2CADDR, allBuffer)
     }
     /**
@@ -676,11 +675,11 @@ namespace Maqueen_V5 {
      * @param speed of Line patrol
      */
     //% weight=254
-    //% blockId=patrolspeed block="set the speed of Line patrol| %PatrolSpeed"
+    //% blockId=patrolSpeed block="set the speed of Line patrol| %PatrolSpeed"
     //% group="Maqueen_v5"
-    export function patrolspeed(speed: PatrolSpeed) {
+    export function patrolSpeed(speed: PatrolSpeed) {
         let allBuffer = pins.createBuffer(2);
-        allBuffer[0] = 0x48;
+        allBuffer[0] = LINE_SPEED_GRADE;
         allBuffer[1] = speed;
         pins.i2cWriteBuffer(I2CADDR, allBuffer)
     }
@@ -726,13 +725,13 @@ namespace Maqueen_V5 {
      */
 
     //% weight=1
-    //% blockId=V5_read_version block="get product information"
+    //% blockId=readVersion block="get product information"
     //% group="Maqueen_v5"
-    export function read_version(): string {
-        pins.i2cWriteNumber(0x10, 50, NumberFormat.UInt8BE);
-        let dataLen = pins.i2cReadNumber(0x10, NumberFormat.UInt8BE);
-        pins.i2cWriteNumber(0x10, 51, NumberFormat.UInt8BE);
-        let buf = pins.i2cReadBuffer(0x10, dataLen, false);
+    export function readVersion(): string {
+        pins.i2cWriteNumber(I2CADDR, 50, NumberFormat.UInt8BE);
+        let dataLen = pins.i2cReadNumber(I2CADDR, NumberFormat.UInt8BE);
+        pins.i2cWriteNumber(I2CADDR, 51, NumberFormat.UInt8BE);
+        let buf = pins.i2cReadBuffer(I2CADDR, dataLen, false);
         let version = "";
         for (let index = 0; index < dataLen; index++) {
             version += String.fromCharCode(buf[index])
@@ -812,22 +811,22 @@ namespace Maqueen_V5 {
             buf[0] = 0x00;
             buf[1] = 0;
             buf[2] = 0;
-            pins.i2cWriteBuffer(0x10, buf);
+            pins.i2cWriteBuffer(I2CADDR, buf);
         }
         if (motors == 1) {
             buf[0] = 0x02;
             buf[1] = 0;
             buf[2] = 0;
-            pins.i2cWriteBuffer(0x10, buf);
+            pins.i2cWriteBuffer(I2CADDR, buf);
         }
 
         if (motors == 2) {
             buf[0] = 0x00;
             buf[1] = 0;
             buf[2] = 0;
-            pins.i2cWriteBuffer(0x10, buf);
+            pins.i2cWriteBuffer(I2CADDR, buf);
             buf[0] = 0x02;
-            pins.i2cWriteBuffer(0x10, buf);
+            pins.i2cWriteBuffer(I2CADDR, buf);
         }
 
     }
@@ -902,7 +901,7 @@ namespace Maqueen_V5 {
             buf[0] = 0x15;
         }
         buf[1] = angle;
-        pins.i2cWriteBuffer(0x10, buf);
+        pins.i2cWriteBuffer(I2CADDR, buf);
     }
   
 
@@ -1013,10 +1012,10 @@ namespace Maqueen_V5 {
     /**
      * Getting battery level
      */
-    //% block="Read Light Values %type"
+    //% block="Read battery Values %type"
     //% weight=16
     //% group="Maqueen_v5"
-    export function GetBatteryData(type: BatteryType): number {
+    export function getBatteryData(type: BatteryType): number {
         let allBuffer = pins.createBuffer(2);
         allBuffer[0]=0X2D;
         allBuffer[1] = type;
@@ -1108,18 +1107,18 @@ namespace Maqueen_V5 {
      */
     let Ble_state: number;
     let Ble_cmd: number;
-    //% block="Get Bluetooth commands"
+    //% block="get Bluetooth commands"
     //% weight=3
      //% group="Maqueen_v5"
     export function BleGetCmd(): number {
         let allBuffer = pins.createBuffer(2);
-        pins.i2cWriteNumber(0x10, 0X50, NumberFormat.Int8LE);
-        allBuffer = pins.i2cReadBuffer(0x10, 1);
+        pins.i2cWriteNumber(I2CADDR, 0X50, NumberFormat.Int8LE);
+        allBuffer = pins.i2cReadBuffer(I2CADDR, 1);
         let temp_data = allBuffer[0];
         return temp_data;
     }
     /**
-     * TODO: describe your function here
+     * When Bluetooth data is received
      * @param value describe value here, eg: 5
      */
     //% weight=2
@@ -1158,7 +1157,7 @@ namespace Maqueen_V5 {
     //% b.min=0 b.max=255
     //% block="red|%r green|%g blue|%b"
     //% group="Maqueen_v5"
-    export function bottom_rgb(r: number, g: number, b: number): number {
+    export function bottomRgb(r: number, g: number, b: number): number {
         return (r << 16) + (g << 8) + (b);
     }
 
