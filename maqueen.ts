@@ -564,6 +564,7 @@ namespace Maqueen_V5 {
         BLE_SERVO2_RIGHT = 15,    /**< servo2 turn right */
         BLE_SERVO2_LEFT = 16,    /**< servo2 turn left */
     };
+    const  MOTOR_0                    =0
     const  SPEED_0                    =1
     const  MOTOR_1                    =2
     const  SPEED_1                    =3
@@ -699,23 +700,23 @@ namespace Maqueen_V5 {
     export function motorRun(index: Motors, direction: Dir, speed: number): void {
         let buf = pins.createBuffer(3);
         if (index == 0) {
-            buf[0] = 0x00;
+            buf[0] = MOTOR_0;
             buf[1] = direction;
             buf[2] = speed;
             pins.i2cWriteBuffer(MOTER_ADDRESSS, buf);
         }
         if (index == 1) {
-            buf[0] = 0x02;
+            buf[0] = MOTOR_1;
             buf[1] = direction;
             buf[2] = speed;
             pins.i2cWriteBuffer(MOTER_ADDRESSS, buf);
         }
         if (index == 2) {
-            buf[0] = 0x00;
+            buf[0] = MOTOR_0;
             buf[1] = direction;
             buf[2] = speed;
             pins.i2cWriteBuffer(MOTER_ADDRESSS, buf);
-            buf[0] = 0x02;
+            buf[0] = MOTOR_1;
             pins.i2cWriteBuffer(MOTER_ADDRESSS, buf);
         }
     }
@@ -808,24 +809,24 @@ namespace Maqueen_V5 {
     export function motorStop(motors: Motors): void {
         let buf = pins.createBuffer(3);
         if (motors == 0) {
-            buf[0] = 0x00;
+            buf[0] = MOTOR_0;
             buf[1] = 0;
             buf[2] = 0;
             pins.i2cWriteBuffer(I2CADDR, buf);
         }
         if (motors == 1) {
-            buf[0] = 0x02;
+            buf[0] = MOTOR_1;
             buf[1] = 0;
             buf[2] = 0;
             pins.i2cWriteBuffer(I2CADDR, buf);
         }
 
         if (motors == 2) {
-            buf[0] = 0x00;
+            buf[0] = MOTOR_0;
             buf[1] = 0;
             buf[2] = 0;
             pins.i2cWriteBuffer(I2CADDR, buf);
-            buf[0] = 0x02;
+            buf[0] = MOTOR_1;
             pins.i2cWriteBuffer(I2CADDR, buf);
         }
 
@@ -839,8 +840,8 @@ namespace Maqueen_V5 {
     //% group="Maqueen_v5"
 
     export function readPatrol(patrol: Patrol): number {
-        pins.i2cWriteNumber(0x10, 29, NumberFormat.UInt8BE);
-        let buf = pins.i2cReadNumber(0x10, NumberFormat.UInt8BE, false);
+        pins.i2cWriteNumber(I2CADDR, BLACK_ADC_STATE, NumberFormat.UInt8BE);
+        let buf = pins.i2cReadNumber(I2CADDR, NumberFormat.UInt8BE, false);
         if (buf & (1 << (3 - patrol)))
             return 1;
         else
@@ -859,17 +860,17 @@ namespace Maqueen_V5 {
         let data;
         switch (patrol) {
             case Patrol.L1:
-                pins.i2cWriteNumber(I2CADDR, 0x20, NumberFormat.Int8LE);
+                pins.i2cWriteNumber(I2CADDR, ADC_COLLECT_1, NumberFormat.Int8LE);
                 let adc0Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc0Buffer[0] << 8 | adc0Buffer[1]
                 break;
             case Patrol.M:
-                pins.i2cWriteNumber(I2CADDR, 0x22, NumberFormat.Int8LE);
+                pins.i2cWriteNumber(I2CADDR, ADC_COLLECT_2, NumberFormat.Int8LE);
                 let adc1Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc1Buffer[0] << 8 | adc1Buffer[1];
                 break;
             case Patrol.R1:
-                pins.i2cWriteNumber(I2CADDR, 0x24, NumberFormat.Int8LE);
+                pins.i2cWriteNumber(I2CADDR, ADC_COLLECT_3, NumberFormat.Int8LE);
                 let adc2Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc2Buffer[0] << 8 | adc2Buffer[1];
                 break;
@@ -895,10 +896,10 @@ namespace Maqueen_V5 {
     export function servoRun(index: Servos, angle: number): void {
         let buf = pins.createBuffer(2);
         if (index == 0) {
-            buf[0] = 0x14;
+            buf[0] = SERVO_1;
         }
         if (index == 1) {
-            buf[0] = 0x15;
+            buf[0] = SERVO_2;
         }
         buf[1] = angle;
         pins.i2cWriteBuffer(I2CADDR, buf);
@@ -918,15 +919,15 @@ namespace Maqueen_V5 {
         let allBuffer = pins.createBuffer(2);
         allBuffer[1] = rgb;
         if (type == DirectionType.Left) {
-            allBuffer[0] = 11;
+            allBuffer[0] = RGB_L;
             pins.i2cWriteBuffer(I2CADDR, allBuffer)
         } else if (type == DirectionType.Right) {
-            allBuffer[0] = 12;
+            allBuffer[0] = RGB_R;
             pins.i2cWriteBuffer(I2CADDR, allBuffer)
         } else if (type == DirectionType.All) {
-            allBuffer[0] = 11;
+            allBuffer[0] = RGB_L;
             pins.i2cWriteBuffer(I2CADDR, allBuffer)
-            allBuffer[0] = 12;
+            allBuffer[0] = RGB_R;
             pins.i2cWriteBuffer(I2CADDR, allBuffer)
         }
     }
@@ -988,7 +989,7 @@ namespace Maqueen_V5 {
     //% weight=11
     //% group="Maqueen_v5"
     export function setRgbOff(type: DirectionType) {
-        setRgblLed(type,8);
+        setRgblLed(type,CarLightColors.Black);
     }
     /**
      * Reading light intensity
@@ -999,11 +1000,11 @@ namespace Maqueen_V5 {
     export function readLightIntensity(type: DirectionType): number {
         let allBuffer = pins.createBuffer(2);
         if (type == DirectionType.Left){
-            pins.i2cWriteNumber(I2CADDR, 0x29, NumberFormat.Int8LE);
+            pins.i2cWriteNumber(I2CADDR, LIGHTL_H, NumberFormat.Int8LE);
             allBuffer = pins.i2cReadBuffer(I2CADDR, 2);
             return allBuffer[0] << 8 | allBuffer[1];
         }else{
-            pins.i2cWriteNumber(I2CADDR, 0x2B, NumberFormat.Int8LE);
+            pins.i2cWriteNumber(I2CADDR, LIGHTR_H, NumberFormat.Int8LE);
             allBuffer = pins.i2cReadBuffer(I2CADDR, 2);
             return allBuffer[0] << 8 | allBuffer[1];
         }
@@ -1017,11 +1018,11 @@ namespace Maqueen_V5 {
     //% group="Maqueen_v5"
     export function getBatteryData(type: BatteryType): number {
         let allBuffer = pins.createBuffer(2);
-        allBuffer[0]=0X2D;
+        allBuffer[0]=BATTERY_SET;
         allBuffer[1] = type;
         pins.i2cWriteBuffer(I2CADDR, allBuffer)
         basic.pause(50);
-        pins.i2cWriteNumber(I2CADDR, 0X2E, NumberFormat.Int8LE);
+        pins.i2cWriteNumber(I2CADDR, BATTERY, NumberFormat.Int8LE);
         allBuffer = pins.i2cReadBuffer(I2CADDR, 1);
         let temp_data = allBuffer[0];
         if (temp_data > 100) temp_data=100;
@@ -1112,7 +1113,7 @@ namespace Maqueen_V5 {
      //% group="Maqueen_v5"
     export function BleGetCmd(): number {
         let allBuffer = pins.createBuffer(2);
-        pins.i2cWriteNumber(I2CADDR, 0X50, NumberFormat.Int8LE);
+        pins.i2cWriteNumber(I2CADDR, BLECMD, NumberFormat.Int8LE);
         allBuffer = pins.i2cReadBuffer(I2CADDR, 1);
         let temp_data = allBuffer[0];
         return temp_data;
@@ -1172,7 +1173,7 @@ namespace Maqueen_V5 {
     //% to.min=0 to.max=3
     //% block="range from |%from with|%to leds"
     //% group="Maqueen_v5"
-    export function bottom_ledRange(from: number, to: number): number {
+    export function bottomLedRange(from: number, to: number): number {
         return ((from) << 16) + (2 << 8) + (to);
     }
 
@@ -1185,7 +1186,7 @@ namespace Maqueen_V5 {
     //% index.min=0 index.max=3
     //% block="RGB light |%index show color|%rgb"
     //% group="Maqueen_v5"
-    export function bottom_setIndexColor(index: number, rgb: NeoPixelColors) {
+    export function bottomSetColor(index: number, rgb: NeoPixelColors) {
         let f = index;
         let t = index;
         let r = (rgb >> 16) * (_brightness / 255);
@@ -1217,7 +1218,7 @@ namespace Maqueen_V5 {
     //% weight=60
     //% block=" RGB show color |%rgb"
     //% group="Maqueen_v5"
-    export function bottom_showColor(rgb: NeoPixelColors) {
+    export function bottomShowColor(rgb: NeoPixelColors) {
         let r = (rgb >> 16) * (_brightness / 255);
         let g = ((rgb >> 8) & 0xFF) * (_brightness / 255);
         let b = ((rgb) & 0xFF) * (_brightness / 255);
@@ -1241,7 +1242,7 @@ namespace Maqueen_V5 {
     //% brightness.min=0 brightness.max=255
     //% block="set RGB brightness to |%brightness"
     //% group="Maqueen_v5"
-    export function bottom_setBrightness(brightness: number) {
+    export function bottomSetBrightness(brightness: number) {
         _brightness = brightness;
     }
 
@@ -1252,8 +1253,8 @@ namespace Maqueen_V5 {
     //% weight=40
     //% block="clear all RGB"
     //% group="Maqueen_v5"
-    export function bottom_ledBlank() {
-        bottom_showColor(0)
+    export function bottomLedOff() {
+        bottomShowColor(0)
     }
 
     /**
@@ -1267,7 +1268,7 @@ namespace Maqueen_V5 {
     //% endHue.min=0 endHue.max=360
     //% blockId=led_rainbow block="set RGB show rainbow color from|%startHue to|%endHue"
     //% group="Maqueen_v5"
-    export function bottom_ledRainbow(startHue: number, endHue: number) {
+    export function bottomLedRainbow(startHue: number, endHue: number) {
         startHue = startHue >> 0;
         endHue = endHue >> 0;
         const saturation = 100;
