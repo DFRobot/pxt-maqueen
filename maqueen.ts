@@ -1179,9 +1179,9 @@ namespace Maqueen_V5 {
     /**
      * Gets the RGB value of a known color
     */
-    //% weight=2 blockGap=8
+    //% weight=61 blockGap=8
     //% blockId="neopixel_colors" block="%color"
-    //% advanced=true
+    //% group="Maqueen_v5"
     export function colors(color: NeoPixelColors): number {
         return color;
     }
@@ -1246,7 +1246,7 @@ namespace Maqueen_V5 {
      * @param brightness  , eg: 100
      */
 
-    //% weight=70
+    //% weight=60
     //% brightness.min=0 brightness.max=255
     //% block="set RGB brightness to |%brightness"
     //% group="Maqueen_v5"
