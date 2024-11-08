@@ -1176,17 +1176,25 @@ namespace Maqueen_V5 {
     export function bottomLedRange(from: number, to: number): number {
         return ((from) << 16) + (2 << 8) + (to);
     }
-
+    /**
+     * Gets the RGB value of a known color
+    */
+    //% weight=2 blockGap=8
+    //% blockId="neopixel_colors" block="%color"
+    //% advanced=true
+    export function colors(color: NeoPixelColors): number {
+        return color;
+    }
     /**
      * Set the color of the specified LEDs
-     * @param index  , eg: 1
+     * @param index  , eg: 0
      */
 
     //% weight=60
-    //% index.min=0 index.max=3
-    //% block="RGB light |%index show color|%rgb"
+    //% index.min=0 index.max=3 index.defl=0
+    //% block="RGB light |%index show color|%rgb=neopixel_colors"
     //% group="Maqueen_v5"
-    export function bottomSetColor(index: number, rgb: NeoPixelColors) {
+    export function bottomSetColor(index: number, rgb: number) {
         let f = index;
         let t = index;
         let r = (rgb >> 16) * (_brightness / 255);
@@ -1216,9 +1224,9 @@ namespace Maqueen_V5 {
      */
 
     //% weight=60
-    //% block=" RGB show color |%rgb"
+    //% block=" RGB show color |%rgb=neopixel_colors"
     //% group="Maqueen_v5"
-    export function bottomShowColor(rgb: NeoPixelColors) {
+    export function bottomShowColor(rgb: number) {
         let r = (rgb >> 16) * (_brightness / 255);
         let g = ((rgb >> 8) & 0xFF) * (_brightness / 255);
         let b = ((rgb) & 0xFF) * (_brightness / 255);
