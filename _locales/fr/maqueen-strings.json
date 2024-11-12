@@ -22,7 +22,7 @@
   "maqueen.motorStopAll|block": "Stop tous les moteurs",
   "maqueen.motorStop|block": "Stop le moteur|%motors",
   "maqueen.readPatrol|block": "Lire détecteur|%patrol",
-  "maqueen.Ultrasonic|block": "unité du senseur|%unit",
+  "maqueen.Ultrasonic|block": "Lire la distance du capteur à ultrasons (en cm)",
   "maqueen.writeLED|block": "%ledswitch|la led|%led",
 
 
@@ -69,7 +69,7 @@
   "Maqueen_V5.motorStop|block": "Arrêt du moteur |%motors",
   "Maqueen_V5.motorStopAll|block": "Arrêter tous les moteurs",
   "Maqueen_V5.motorRun|block": "Moteur |%index |direction |%Dir |vitesse |%speed",
-  "Maqueen_V5.Ultrasonic|block": "Distance ultrasonique |%unit",
+  "Maqueen_V5.Ultrasonic|block": "Lire la distance du capteur à ultrasons (en cm)",
   "Maqueen_V5.writeLED|block": "Lampe à LED |%led |%ledswitch",
   "Maqueen_V5.IR_read|block": "Valeur infrarouge",
   "Maqueen_V5.servoRun|block": "Servomoteur |%index |angle |%angle",

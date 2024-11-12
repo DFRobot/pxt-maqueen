@@ -10,7 +10,6 @@
  * @author [email](jie.tang@dfrobot.com)
  * @date  2019-10-08
 */
-
 let maqueencb: Action
 let maqueenmycb: Action
 let maqueene = "1"
@@ -133,10 +132,10 @@ namespace maqueen {
     let state1 = 0;
     //% blockId=ultrasonic_sensor block="read ultrasonic sensor |%unit "
     //% weight=95
-    export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
+    export function Ultrasonic(): number {
         let data;
         let i = 0;
-        data = readUlt(unit);
+        data = readUlt(PingUnit.Centimeters);
         if (state1 == 1 && data != 0) {
             state1 = 0;
         }
@@ -144,7 +143,7 @@ namespace maqueen {
         } else {
             if (state1 == 0) {
                 do {
-                    data = readUlt(unit);
+                    data = readUlt(PingUnit.Centimeters);
                     i++;
                     if (i > 3) {
                         state1 = 1;
@@ -746,10 +745,10 @@ namespace Maqueen_V5 {
     //% blockId=V5_ultrasonic_sensor block="read ultrasonic sensor |%unit "
     //% weight=95
     //% group="Maqueen_v5"
-    export function Ultrasonic(unit: PingUnit, maxCmDistance = 500): number {
+    export function Ultrasonic(): number {
         let data;
         let i = 0;
-        data = readUlt(unit);
+        data = readUlt(PingUnit.Centimeters);
         if (state1 == 1 && data != 0) {
             state1 = 0;
         }
@@ -757,7 +756,7 @@ namespace Maqueen_V5 {
         } else {
             if (state1 == 0) {
                 do {
-                    data = readUlt(unit);
+                    data = readUlt(PingUnit.Centimeters);
                     i++;
                     if (i > 3) {
                         state1 = 1;

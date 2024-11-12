@@ -29,6 +29,6 @@ basic.pause(1000)
 basic.pause(1000)
 serial.writeLine("V:" + maqueen.IR_read_version())
 basic.pause(1000)
-serial.writeLine("CM:" + maqueen.Ultrasonic(PingUnit.Centimeters))
+serial.writeLine("CM:" + maqueen.Ultrasonic())
 basic.pause(1000)
 
