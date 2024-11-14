@@ -1015,7 +1015,7 @@ namespace Maqueen_V5 {
     //% block="Read battery Values %type"
     //% weight=16
     //% group="Maqueen_v5"
-    export function getBatteryData(type: BatteryType): number {
+    export function getBatteryData(type: BatteryType = BatteryType.Alkaline): number {
         let allBuffer = pins.createBuffer(2);
         allBuffer[0]=BATTERY_SET;
         allBuffer[1] = type;
