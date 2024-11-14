@@ -496,10 +496,10 @@ namespace Maqueen_V5 {
     }
 
     export enum BatteryType {
-        //% block="Lithium battery"
-        Lithium = 0,
         //% block="Alkaline battery"
         Alkaline = 1,
+        //% block="Lithium battery"
+        Lithium = 0,
     }
 
     /**
