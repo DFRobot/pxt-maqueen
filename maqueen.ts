@@ -495,6 +495,12 @@ namespace Maqueen_V5 {
         All = 2,
     }
 
+    export enum DirectionType2 {
+        //% block="left led light"
+        Left = 0,
+        //% block="right led light"
+        Right = 1,
+    }
     export enum BatteryType {
         //% block="Alkaline battery"
         Alkaline = 1,
@@ -996,9 +1002,9 @@ namespace Maqueen_V5 {
     //% block="Read Light Values %type"
     //% weight=16
     //% group="Maqueen_v5"
-    export function readLightIntensity(type: DirectionType): number {
+    export function readLightIntensity(type: DirectionType2): number {
         let allBuffer = pins.createBuffer(2);
-        if (type == DirectionType.Left){
+        if (type == DirectionType2.Left){
             pins.i2cWriteNumber(I2CADDR, LIGHTL_H, NumberFormat.Int8LE);
             allBuffer = pins.i2cReadBuffer(I2CADDR, 2);
             return allBuffer[0] << 8 | allBuffer[1];

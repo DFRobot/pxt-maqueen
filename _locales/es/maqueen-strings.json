@@ -53,6 +53,8 @@
     "Maqueen_V5.DirectionType.Right|block": "Derecha",  
     "Maqueen_V5.DirectionType.Left|block": "Izquierda",  
     "Maqueen_V5.DirectionType.All|block": "Todos",  
+    "Maqueen_V5.DirectionType2.Right|block": "Derecha",
+    "Maqueen_V5.DirectionType2.Left|block": "Izquierda",
     "Maqueen_V5.Motors.M1|block": "Izquierda",  
     "Maqueen_V5.Motors.M2|block": "Derecha",  
     "Maqueen_V5.Motors.All|block": "Todos",  

@@ -64,6 +64,8 @@
   "Maqueen_V5.DirectionType.Right|block": "Право",  
   "Maqueen_V5.DirectionType.Left|block": "Лево",  
   "Maqueen_V5.DirectionType.All|block": "Все",  
+  "Maqueen_V5.DirectionType2.Right|block": "Право",
+  "Maqueen_V5.DirectionType2.Left|block": "Лево",
   "Maqueen_V5.Motors.M1|block": "Левый",  
   "Maqueen_V5.Motors.M2|block": "Правый",  
   "Maqueen_V5.Motors.All|block": "Все",  

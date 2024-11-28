@@ -43,6 +43,8 @@
   "Maqueen_V5.DirectionType.Right": "右",
   "Maqueen_V5.DirectionType.Left": "左",
   "Maqueen_V5.DirectionType.All": "全部",
+  "Maqueen_V5.DirectionType2.Right": "右",
+  "Maqueen_V5.DirectionType2.Left": "左",
   "Maqueen_V5.Motors.M1": "左侧",
   "Maqueen_V5.Motors.M2": "右侧",
   "Maqueen_V5.Motors.All": "全部",
