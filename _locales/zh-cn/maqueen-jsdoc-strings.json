@@ -52,7 +52,7 @@
   "Maqueen_V5.I2CInit": "初始化MaqueenV5直到成功",
   "Maqueen_V5.patrolSpeed": "巡线速度设置 ",
   "Maqueen_V5.setRgblLed": " 设置RGB车灯颜色",
-  "Maqueen_V5.setRgbBlink": "设置RGB车灯闪烁次数",
+  "Maqueen_V5.setRgbBlink": "设置RGB车灯闪烁的次数、速度、颜色",
   "Maqueen_V5.setRgbchange": "设置RGB车灯渐变速度",
   "Maqueen_V5.setRgbOff": "RGB车灯熄灭  ",
   "Maqueen_V5.readLightIntensity": "读取光线值，返回值0-1023",
