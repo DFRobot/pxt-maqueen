@@ -1,4 +1,3 @@
-注释
 {
   "maqueen.IR_read": "返回红外传感器接收到的值.",
   "maqueen.IR_read_version": "版本信息.",
@@ -42,24 +41,24 @@
   "Maqueen_V5.Ultrasonic": "超声波距离单位厘米",
   "Maqueen_V5.writeLED": "设置LED",
   "Maqueen_V5.IR_read": " 红外的值",
-  "Maqueen_V5.servoRun": "设置舵机角度",
+  "Maqueen_V5.servoRun": "设置舵机角度（0-180°）",
   "Maqueen_V5.readVersion": "读取版本号",
   "Maqueen_V5.Voltage.High": "高",
   "Maqueen_V5.Voltage.Low": "低",
   "Maqueen_V5.IR_callbackUserV2": "当接收到红外时运行",
-  "Maqueen_V5.IR_readV2": "红外的值",
-  "Maqueen_V5.readPatrol": "读取巡线传感器状态",
-  "Maqueen_V5.readPatrolData": "读取巡线传感器数据",
+  "Maqueen_V5.IR_readV2": "红外的值，返回值为0-255",
+  "Maqueen_V5.readPatrol": "读取巡线传感器状态，白纸返回为1，空中/黑纸返回为0",
+  "Maqueen_V5.readPatrolData": "读取巡线传感器数据，返回值1500左右（空中/黑纸）-3000左右（白纸）",
   "Maqueen_V5.I2CInit": "初始化MaqueenV5直到成功",
   "Maqueen_V5.patrolSpeed": "巡线速度设置 ",
   "Maqueen_V5.setRgblLed": " 设置RGB车灯颜色",
   "Maqueen_V5.setRgbBlink": "设置RGB车灯闪烁次数",
   "Maqueen_V5.setRgbchange": "设置RGB车灯渐变速度",
   "Maqueen_V5.setRgbOff": "RGB车灯熄灭  ",
-  "Maqueen_V5.readLightIntensity": "读取光线值 ",
-  "Maqueen_V5.getBatteryData": "读取电池电量  ",
+  "Maqueen_V5.readLightIntensity": "读取光线值，返回值0-1023",
+  "Maqueen_V5.getBatteryData": "读取电池电量，返回值为0-100  ",
   "Maqueen_V5.BleCmdDefault": "接收到的值对应关系如下 :1:前进，2:后退，3:左转，4:右转，5:RGB红色，6:RGB绿色，7:RGB蓝色，8:RGB紫色，9:RGB黄色，10:RGB青色，11:RGB白色，12:RGB黑色，13:舵机1正转，14:舵机1反转，15:舵机1正转，16:舵机2反转",    
-  "Maqueen_V5.BleGetCmd": "获取蓝牙命令",
-  "Maqueen_V5.BlecallbackUser": "当接收到蓝牙命令"
+  "Maqueen_V5.BleGetCmd": "获取蓝牙命令，返回值为0-255",
+  "Maqueen_V5.BlecallbackUser": "当接收到蓝牙命令时，返回值为0-255"
   
 }
