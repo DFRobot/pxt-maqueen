@@ -679,7 +679,6 @@ namespace Maqueen_V5 {
     /**
      * Set the tracking speed
      * @param speed of Line patrol
-     */
     //% weight=254
     //% blockId=patrolSpeed block="set the speed of Line patrol| %PatrolSpeed"
     //% group="Maqueen_v5"
@@ -689,6 +688,8 @@ namespace Maqueen_V5 {
         allBuffer[1] = speed;
         pins.i2cWriteBuffer(I2CADDR, allBuffer)
     }
+    */
+
 
     /**
      * Control motor module running
@@ -1148,193 +1149,6 @@ namespace Maqueen_V5 {
         basic.pause(50);
     })
 
-
-
-    /** 
-   * Set the three primary color:red, green, and blue
-   * @param r  , eg: 100
-   * @param g  , eg: 100
-   * @param b  , eg: 100
-   */
-
-    //% weight=60
-    //% r.min=0 r.max=255
-    //% g.min=0 g.max=255
-    //% b.min=0 b.max=255
-    //% block="red|%r green|%g blue|%b"
-    //% group="Maqueen_v5"
-    export function bottomRgb(r: number, g: number, b: number): number {
-        return (r << 16) + (g << 8) + (b);
-    }
-
-    /**
-     * The LED positions where you wish to begin and end
-     * @param from  , eg: 0
-     * @param to  , eg: 3
-     */
-
-    //% weight=60
-    //% from.min=0 from.max=3
-    //% to.min=0 to.max=3
-    //% block="range from |%from with|%to leds"
-    //% group="Maqueen_v5"
-    export function bottomLedRange(from: number, to: number): number {
-        return ((from) << 16) + (2 << 8) + (to);
-    }
-    /**
-     * Gets the RGB value of a known color
-    */
-    //% weight=61 blockGap=8
-    //% blockId="neopixel_colors" block="%color"
-    //% group="Maqueen_v5"
-    export function colors(color: NeoPixelColors): number {
-        return color;
-    }
-    /**
-     * Set the color of the specified LEDs
-     * @param index  , eg: 0
-     */
-
-    //% weight=60
-    //% index.min=0 index.max=3 index.defl=0
-    //% block="RGB light |%index show color|%rgb=neopixel_colors"
-    //% group="Maqueen_v5"
-    export function bottomSetColor(index: number, rgb: number) {
-        let f = index;
-        let t = index;
-        let r = (rgb >> 16) * (_brightness / 255);
-        let g = ((rgb >> 8) & 0xFF) * (_brightness / 255);
-        let b = ((rgb) & 0xFF) * (_brightness / 255);
-
-        if (index > 15) {
-            if (((index >> 8) & 0xFF) == 0x02) {
-                f = index >> 16;
-                t = index & 0xff;
-            } else {
-                f = 0;
-                t = -1;
-            }
-        }
-        for (let i = f; i <= t; i++) {
-            neopixel_buf[i * 3 + 0] = Math.round(g)
-            neopixel_buf[i * 3 + 1] = Math.round(r)
-            neopixel_buf[i * 3 + 2] = Math.round(b)
-        }
-        ws2812b.sendBuffer(neopixel_buf, DigitalPin.P15)
-
-    }
-
-    /**
-     * Set the color of all RGB LEDs
-     */
-
-    //% weight=60
-    //% block=" RGB show color |%rgb=neopixel_colors"
-    //% group="Maqueen_v5"
-    export function bottomShowColor(rgb: number) {
-        let r = (rgb >> 16) * (_brightness / 255);
-        let g = ((rgb >> 8) & 0xFF) * (_brightness / 255);
-        let b = ((rgb) & 0xFF) * (_brightness / 255);
-        for (let i = 0; i < 16 * 3; i++) {
-            if ((i % 3) == 0)
-                neopixel_buf[i] = Math.round(g)
-            if ((i % 3) == 1)
-                neopixel_buf[i] = Math.round(r)
-            if ((i % 3) == 2)
-                neopixel_buf[i] = Math.round(b)
-        }
-        ws2812b.sendBuffer(neopixel_buf, DigitalPin.P15)
-    }
-
-    /**
-     * Set the brightness of RGB LED
-     * @param brightness  , eg: 100
-     */
-
-    //% weight=60
-    //% brightness.min=0 brightness.max=255
-    //% block="set RGB brightness to |%brightness"
-    //% group="Maqueen_v5"
-    export function bottomSetBrightness(brightness: number) {
-        _brightness = brightness;
-    }
-
-    /**
-     * Turn off all RGB LEDs
-     */
-
-    //% weight=40
-    //% block="clear all RGB"
-    //% group="Maqueen_v5"
-    export function bottomLedOff() {
-        bottomShowColor(0)
-    }
-
-    /**
-     * RGB LEDs display rainbow colors 
-     */
-
-    //% weight=50
-    //% startHue.defl=1
-    //% endHue.defl=360
-    //% startHue.min=0 startHue.max=360
-    //% endHue.min=0 endHue.max=360
-    //% blockId=led_rainbow block="set RGB show rainbow color from|%startHue to|%endHue"
-    //% group="Maqueen_v5"
-    export function bottomLedRainbow(startHue: number, endHue: number) {
-        startHue = startHue >> 0;
-        endHue = endHue >> 0;
-        const saturation = 100;
-        const luminance = 50;
-        let steps = 3 + 1;
-        const direction = HueInterpolationDirection.Clockwise;
-
-        //hue
-        const h1 = startHue;
-        const h2 = endHue;
-        const hDistCW = ((h2 + 360) - h1) % 360;
-        const hStepCW = Math.idiv((hDistCW * 100), steps);
-        const hDistCCW = ((h1 + 360) - h2) % 360;
-        const hStepCCW = Math.idiv(-(hDistCCW * 100), steps);
-        let hStep: number;
-        if (direction === HueInterpolationDirection.Clockwise) {
-            hStep = hStepCW;
-        } else if (direction === HueInterpolationDirection.CounterClockwise) {
-            hStep = hStepCCW;
-        } else {
-            hStep = hDistCW < hDistCCW ? hStepCW : hStepCCW;
-        }
-        const h1_100 = h1 * 100; //we multiply by 100 so we keep more accurate results while doing interpolation
-
-        //sat
-        const s1 = saturation;
-        const s2 = saturation;
-        const sDist = s2 - s1;
-        const sStep = Math.idiv(sDist, steps);
-        const s1_100 = s1 * 100;
-
-        //lum
-        const l1 = luminance;
-        const l2 = luminance;
-        const lDist = l2 - l1;
-        const lStep = Math.idiv(lDist, steps);
-        const l1_100 = l1 * 100
-
-        //interpolate
-        if (steps === 1) {
-            writeBuff(0, hsl(h1 + hStep, s1 + sStep, l1 + lStep))
-        } else {
-            writeBuff(0, hsl(startHue, saturation, luminance));
-            for (let i = 1; i < steps - 1; i++) {
-                const h = Math.idiv((h1_100 + i * hStep), 100) + 360;
-                const s = Math.idiv((s1_100 + i * sStep), 100);
-                const l = Math.idiv((l1_100 + i * lStep), 100);
-                writeBuff(0 + i, hsl(h, s, l));
-            }
-            writeBuff(3, hsl(endHue, saturation, luminance));
-        }
-        ws2812b.sendBuffer(neopixel_buf, DigitalPin.P15)
-    }
 
     export enum HueInterpolationDirection {
         Clockwise,

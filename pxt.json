@@ -5,7 +5,6 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.2",
         "ir": "github:dfrobot/pxt-dfrobot_newir#v0.0.2"
     },
     "files": [
