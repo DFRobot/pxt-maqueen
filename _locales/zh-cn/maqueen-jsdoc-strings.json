@@ -58,7 +58,7 @@
   "Maqueen_V5.readLightIntensity": "读取光线值，返回值0-1023",
   "Maqueen_V5.getBatteryData": "读取电池电量，返回值为0-100  ",
   "Maqueen_V5.BleCmdDefault": "接收到的值对应关系如下 :1:前进，2:后退，3:左转，4:右转，5:RGB红色，6:RGB绿色，7:RGB蓝色，8:RGB紫色，9:RGB黄色，10:RGB青色，11:RGB白色，12:RGB黑色，13:舵机1正转，14:舵机1反转，15:舵机1正转，16:舵机2反转",    
-  "Maqueen_V5.BleGetCmd": "获取蓝牙命令，返回值为0-255",
-  "Maqueen_V5.BlecallbackUser": "当接收到蓝牙命令时，返回值为0-255"
+  "Maqueen_V5.BleGetCmd": "获取麦昆V5的蓝牙命令，返回值为0-255",
+  "Maqueen_V5.BlecallbackUser": "当接收到麦昆V5的蓝牙命令时，返回值为0-255"
   
 }
