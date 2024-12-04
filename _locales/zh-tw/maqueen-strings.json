@@ -92,6 +92,6 @@
     "Maqueen_V5.readLightIntensity|block": "讀取光線值 %type ",  
     "Maqueen_V5.getBatteryData|block": "讀取電池電量 %type ",  
     "Maqueen_V5.BleCmdDefault|block": "麥昆V5藍牙默認控制配置%cmd",  
-    "Maqueen_V5.BleGetCmd|block": "獲取藍牙命令",  
-    "Maqueen_V5.BlecallbackUser|block": "當接收到藍牙命令"
+    "Maqueen_V5.BleGetCmd|block": "獲取麥昆V5藍牙命令",  
+    "Maqueen_V5.BlecallbackUser|block": "當接收到麥昆V5藍牙命令"
 }

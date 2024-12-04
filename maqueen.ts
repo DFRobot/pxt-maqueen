@@ -746,7 +746,7 @@ namespace Maqueen_V5 {
         return version
     }
     /**
-     * Read ultrasonic sensor.
+     * Read ultrasonic sensor（uint cm）.
      */
     let state1 = 0;
     //% blockId=V5_ultrasonic_sensor block="read ultrasonic sensor |%unit "
@@ -838,7 +838,7 @@ namespace Maqueen_V5 {
 
     }
     /**
-     * Get the state of the patrol sensor
+     * Get the state of the patrol sensor. placing the cart on white paper returns 0 and placing the cart on air/black paper returns 1
      * @param eline Select the inspection sensor enumeration
      */
     //% weight=20
@@ -890,7 +890,7 @@ namespace Maqueen_V5 {
     }
 
     /**
-     * Control the Maqueen steering Angle
+     * Control the Maqueen steering Angle(0-180)
      * @param eline Select the inspection sensor enumeration
      */
 
@@ -988,7 +988,7 @@ namespace Maqueen_V5 {
         }
     }
     /**
-     * Turn off all RGB
+     * Turn off RGB
      * @param type to type ,eg: DirectionType.Left
      */
     //% block="Close |%type RGB Car Lights  "
@@ -998,7 +998,7 @@ namespace Maqueen_V5 {
         setRgblLed(type,CarLightColors.Black);
     }
     /**
-     * Reading light intensity
+     * Reading light intensity(0-1023)
      */
     //% block="Read Light Values %type"
     //% weight=16
@@ -1017,7 +1017,7 @@ namespace Maqueen_V5 {
             
     }
     /**
-     * Getting battery level
+     * Getting battery level(0-100)
      */
     //% block="Read battery Values %type"
     //% weight=16
@@ -1035,7 +1035,7 @@ namespace Maqueen_V5 {
         return temp_data;
     }
     /**
-     * Bluetooth commands control the configuration by default
+     *  Bluetooth of Maqueen V5 commands control the configuration by default
      * @param Received Bluetooth command
      */
     //% block="Maqueen_v5 Default Bluetooth command control %cmd"
@@ -1110,7 +1110,7 @@ namespace Maqueen_V5 {
     }
 
     /**
-     * Get Bluetooth commands
+     * Get commands from Bluetooth of Maqueen V5
      */
     let Ble_state: number;
     let Ble_cmd: number;
@@ -1125,7 +1125,7 @@ namespace Maqueen_V5 {
         return temp_data;
     }
     /**
-     * When Bluetooth data is received
+     * When Bluetooth data from Maqueen V5 is received
      * @param value describe value here, eg: 5
      */
     //% weight=2
@@ -1148,59 +1148,6 @@ namespace Maqueen_V5 {
         }
         basic.pause(50);
     })
-
-
-    export enum HueInterpolationDirection {
-        Clockwise,
-        CounterClockwise,
-        Shortest
-    }
-
-    function writeBuff(index: number, rgb: number) {
-        let r = (rgb >> 16) * (_brightness / 255);
-        let g = ((rgb >> 8) & 0xFF) * (_brightness / 255);
-        let b = ((rgb) & 0xFF) * (_brightness / 255);
-        neopixel_buf[index * 3 + 0] = Math.round(g)
-        neopixel_buf[index * 3 + 1] = Math.round(r)
-        neopixel_buf[index * 3 + 2] = Math.round(b)
-    }
-
-    function hsl(h: number, s: number, l: number): number {
-        h = Math.round(h);
-        s = Math.round(s);
-        l = Math.round(l);
-
-        h = h % 360;
-        s = Math.clamp(0, 99, s);
-        l = Math.clamp(0, 99, l);
-        let c = Math.idiv((((100 - Math.abs(2 * l - 100)) * s) << 8), 10000); //chroma, [0,255]
-        let h1 = Math.idiv(h, 60);//[0,6]
-        let h2 = Math.idiv((h - h1 * 60) * 256, 60);//[0,255]
-        let temp = Math.abs((((h1 % 2) << 8) + h2) - 256);
-        let x = (c * (256 - (temp))) >> 8;//[0,255], second largest component of this color
-        let r$: number;
-        let g$: number;
-        let b$: number;
-        if (h1 == 0) {
-            r$ = c; g$ = x; b$ = 0;
-        } else if (h1 == 1) {
-            r$ = x; g$ = c; b$ = 0;
-        } else if (h1 == 2) {
-            r$ = 0; g$ = c; b$ = x;
-        } else if (h1 == 3) {
-            r$ = 0; g$ = x; b$ = c;
-        } else if (h1 == 4) {
-            r$ = x; g$ = 0; b$ = c;
-        } else if (h1 == 5) {
-            r$ = c; g$ = 0; b$ = x;
-        }
-        let m = Math.idiv((Math.idiv((l * 2 << 8), 100) - c), 2);
-        let r = r$ + m;
-        let g = g$ + m;
-        let b = b$ + m;
-
-        return (r << 16) + (g << 8) + b;
-    }
 
 
 }

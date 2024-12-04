@@ -48,7 +48,7 @@
   "Maqueen_V5.IR_callbackUserV2": "当接收到红外时运行",
   "Maqueen_V5.IR_readV2": "红外的值，返回值为0-255",
   "Maqueen_V5.readPatrol": "读取巡线传感器状态，将小车放在白纸上返回为0，将小车放在空中/黑纸上返回为1",
-  "Maqueen_V5.readPatrolData": "读取巡线传感器数据，返回值1500左右（空中/黑纸 3000左右（白纸）",
+  "Maqueen_V5.readPatrolData": "读取巡线传感器数据，返回值1500左右（空中/黑纸) 3000左右（白纸）",
   "Maqueen_V5.I2CInit": "初始化MaqueenV5直到成功",
   "Maqueen_V5.patrolSpeed": "巡线速度设置 ",
   "Maqueen_V5.setRgblLed": " 设置RGB车灯颜色",
