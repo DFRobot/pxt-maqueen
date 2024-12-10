@@ -613,7 +613,7 @@ namespace Maqueen_V5 {
      const  T2_DEFAULT                 =77
      const  T3_DEFAULT                 =78
      const  BLECMD                     =80
-
+     const  BLEEN                     = 81
     /**
      *  Init I2C until success
     */
@@ -1034,7 +1034,18 @@ namespace Maqueen_V5 {
         if (temp_data > 100) temp_data=100;
         return temp_data;
     }
-   
+    // // /**
+    // //  *  Enable or disable BLE
+    // //  */
+    // // //% block="Bluetooth of Maqueen_v5  %cmd"
+    // // //% weight=5
+    // // //% group="Maqueen_v5"
+    // export function BleModule(cmd: Patrolling) {
+    //     let allBuffer = pins.createBuffer(2);
+    //     allBuffer[0] = BLEEN;
+    //     allBuffer[1] = cmd;
+    //     pins.i2cWriteBuffer(I2CADDR, allBuffer);
+    // }
     // /**
     //  *  Bluetooth of Maqueen V5 commands control the configuration by default
     //  * @param Received Bluetooth command

@@ -80,6 +80,7 @@
     "Maqueen_V5.getBatteryData|block": "读取电池电量 %type ",
     "Maqueen_V5.BleCmdDefault|block": "麦昆V5蓝牙默认控制配置%cmd",
     "Maqueen_V5.BleGetCmd|block": "获取麦昆V5蓝牙命令",
-    "Maqueen_V5.BlecallbackUser|block": "当接收到麦昆V5蓝牙命令"
+    "Maqueen_V5.BlecallbackUser|block": "当接收到麦昆V5蓝牙命令",
+    "Maqueen_V5.BleModule|block": "麦昆V5蓝牙%cmd"
 
 }
