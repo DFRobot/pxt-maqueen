@@ -453,12 +453,12 @@ namespace Maqueen_V5 {
         S2 = 1
     }
     export enum Patrol {
-        //% blockId="patrolLeft" block="L1"
-        L1 = 1,
+        //% blockId="patrolLeft" block="L"
+        L = 1,
         //% blockId="patrolMiddle" block="M"
         M = 2,
-        //% blockId="patrolRight" block="R1"
-        R1 = 3
+        //% blockId="patrolRight" block="R"
+        R = 3
     }
     export enum SpeedGrade {
         //% block="1"
@@ -865,7 +865,7 @@ namespace Maqueen_V5 {
     export function readPatrolData(patrol: Patrol): number {
         let data;
         switch (patrol) {
-            case Patrol.L1:
+            case Patrol.L:
                 pins.i2cWriteNumber(I2CADDR, ADC_COLLECT_1, NumberFormat.Int8LE);
                 let adc0Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc0Buffer[0] << 8 | adc0Buffer[1]
@@ -875,7 +875,7 @@ namespace Maqueen_V5 {
                 let adc1Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc1Buffer[0] << 8 | adc1Buffer[1];
                 break;
-            case Patrol.R1:
+            case Patrol.R:
                 pins.i2cWriteNumber(I2CADDR, ADC_COLLECT_3, NumberFormat.Int8LE);
                 let adc2Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc2Buffer[0] << 8 | adc2Buffer[1];
