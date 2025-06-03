@@ -1,12 +1,12 @@
-/** 
+/**
  * @file pxt-maqueen/maqueen.ts
  * @brief DFRobot's maqueen makecode library.
  * @n [Get the module here](https://www.dfrobot.com.cn/goods-1802.html)
  * @n This is a MakeCode graphical programming education robot.
- * 
+ *
  * @copyright    [DFRobot](http://www.dfrobot.com), 2016
  * @copyright    MIT Lesser General Public License
- * 
+ *
  * @author [email](jie.tang@dfrobot.com)
  * @date  2019-10-08
 */
@@ -126,11 +126,12 @@ namespace maqueen {
         return version
     }
 
+    let state1 = 0;
     /**
      * Read ultrasonic sensor.
      */
-    let state1 = 0;
-    //% blockId=ultrasonic_sensor block="read ultrasonic sensor |%unit "
+
+    //% blockId=ultrasonic_sensor block="read ultrasonic sensor in cm"
     //% weight=95
     export function Ultrasonic(): number {
         let data;
@@ -185,6 +186,9 @@ namespace maqueen {
 
     /**
      * Set the direction and speed of Maqueen motor.
+     * @param index Motor to run
+     * @param direction Wheel direction
+     * @param speed Wheel speed
      */
 
     //% weight=90
@@ -218,11 +222,12 @@ namespace maqueen {
 
     /**
      * Stop the Maqueen motor.
+     * @param motors The motor to stop
      */
 
     //% weight=20
     //% blockId=motor_motorStop block="motor |%motors stop"
-    //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
+    //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2
     export function motorStop(motors: Motors): void {
         let buf = pins.createBuffer(3);
         if (motors == 0) {
@@ -251,11 +256,12 @@ namespace maqueen {
 
     /**
      * Read line tracking sensor.
+     * @param patrol The patrol sensor to read
      */
 
     //% weight=20
     //% blockId=read_Patrol block="read |%patrol line tracking sensor"
-    //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
+    //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2
     export function readPatrol(patrol: Patrol): number {
         if (patrol == Patrol.PatrolLeft) {
             return pins.digitalReadPin(DigitalPin.P13)
@@ -268,11 +274,13 @@ namespace maqueen {
 
     /**
      * Turn on/off the LEDs.
+     * @param led The LED to operate
+     * @param ledswitch The operation to perform
      */
 
     //% weight=20
     //% blockId=writeLED block="LEDlight |%led turn |%ledswitch"
-    //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
+    //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
     export function writeLED(led: LED, ledswitch: LEDswitch): void {
         if (led == LED.LEDLeft) {
@@ -286,6 +294,8 @@ namespace maqueen {
 
     /**
      * Set the Maqueen servos.
+     * @param index Servo channel
+     * @param angle Servo angle; eg: 90
      */
 
     //% weight=90
@@ -306,6 +316,8 @@ namespace maqueen {
 
     /**
     * Line tracking sensor event function
+    * @param value Sensor
+    * @param vi Voltage
     */
     //% weight=2
     //% blockId=kb_event block="on|%value line tracking sensor|%vi"
@@ -551,22 +563,38 @@ namespace Maqueen_V5 {
         //% block=black
         Black = 8
     }
-    const enum BleCmd {
+    export const enum BleCmd {
+        //% block="Go forward"
         BleForward = 1,         /**< advance */
+        //% block="Go backward"
         BleBackward = 2,         /**< astern */
+        //% block="Turn left"
         BleLeft = 3,             /**< turn left */
+        //% block="Turn right"
         BleRight = 4,           /**< turn right */
+        //% block="RGB red"
         BleRgbR = 5,           /**< Red */
+        //% block="RGB green"
         BleRgbG = 6,            /**< Green */
+        //% block="RGB blue"
         BleRgbB = 7,           /**< Blue */
+        //% block="RGB purple"
         BleRgbRB = 8,          /**< Purple */
+        //% block="RGB yellow"
         BleRgbRG = 9,          /**< Yellow */
+        //% block="RGB cyan"
         BleRgbGB = 10,         /**< Cyan */
+        //% block="RGB white"
         BleRgbRGB = 11,        /**< White */
+        //% block="RGB OFF"
         BleRgbOff = 12,        /**< Off */
+        //% block="Turn servo1 right"
         BleServo1Right = 13,   /**< servo1 turn right */
+        //% block="Turn servo1 left"
         BleServo1Left = 14,     /**< servo1 turn left */
+        //% block="Turn servo2 right"
         BleServo2Right = 15,    /**< servo2 turn right */
+        //% block="Turn servo2 left"
         BleServo2Left = 16,    /**< servo2 turn left */
     };
      const  MOTOR_0                    =0
@@ -662,7 +690,7 @@ namespace Maqueen_V5 {
     }
     /**
      * Start or close the line patrol
-     * @param patrol to patrol ,eg: Patrolling.ON
+     * @param patrol to patrol
      */
     //% weight=253
     //% blockId=patrolling block="Line patrolling| %Patrolling"
@@ -693,9 +721,9 @@ namespace Maqueen_V5 {
 
     /**
      * Control motor module running
-     * @param motor Motor selection enumeration
-     * @param dir   Motor direction selection enumeration
-     * @param speed  Motor speed control, eg:100
+     * @param index Motor selection enumeration
+     * @param direction Motor direction selection enumeration
+     * @param speed Motor speed control, eg:100
      */
     //% weight=252
     //% blockId= V5_motor block="motor|%index|move|%Dir|at speed|%speed"
@@ -745,11 +773,14 @@ namespace Maqueen_V5 {
         }
         return version
     }
+
+    let state1 = 0;
+
     /**
      * Read ultrasonic sensor（uint cm）.
      */
-    let state1 = 0;
-    //% blockId=V5_ultrasonic_sensor block="read ultrasonic sensor |%unit "
+
+    //% blockId=V5_ultrasonic_sensor block="read ultrasonic sensor"
     //% weight=95
     //% group="Maqueen_v5"
     export function Ultrasonic(): number {
@@ -805,12 +836,12 @@ namespace Maqueen_V5 {
 
     /**
      * Control the motor module to stop running
-     * @param emotor Motor selection enumeration
+     * @param motors Motor selection enumeration
      */
 
     //% weight=240
     //% blockId=V5_motorStop block="motor |%motors stop"
-    //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
+    //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2
     //% group="Maqueen_v5"
     export function motorStop(motors: Motors): void {
         let buf = pins.createBuffer(3);
@@ -839,7 +870,7 @@ namespace Maqueen_V5 {
     }
     /**
      * Get the state of the patrol sensor. placing the cart on white paper returns 0 and placing the cart on air/black paper returns 1
-     * @param eline Select the inspection sensor enumeration
+     * @param patrol Select the inspection sensor enumeration
      */
     //% weight=20
     //% blockId=readPatrol block="read line sensor |%Patrol  state"
@@ -853,14 +884,14 @@ namespace Maqueen_V5 {
         else
             return 0;
     }
-    
+
     /**
      * The ADC data of the patrol sensor is obtained
-     * @param eline Select the inspection sensor enumeration
+     * @param patrol Select the inspection sensor enumeration
      */
     //% weight=21
     //% blockId= readPatrolData block="read line sensor |%Patrol  ADC data"
-    //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
+    //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2
     //% group="Maqueen_v5"
     export function readPatrolData(patrol: Patrol): number {
         let data;
@@ -910,12 +941,11 @@ namespace Maqueen_V5 {
         buf[1] = angle;
         pins.i2cWriteBuffer(I2CADDR, buf);
     }
-  
 
     /**
      * Sets the color of the RGB lamp
-     * @param type to type ,eg: DirectionType.Left
-     * @param rgb to rgb ,eg: CarLightColors.Red
+     * @param type to type
+     * @param rgb to rgb
      */
 
     //% block="RGB Car Lights %type color %rgb"
@@ -939,7 +969,7 @@ namespace Maqueen_V5 {
     }
     /**
      * Set RGB lights to flash
-     * @param type to type ,eg: DirectionType.Left
+     * @param type to type
      * @param num of flashes
      * @param grade Select the speed level enumeration
      * @param rgb Select color
@@ -970,8 +1000,8 @@ namespace Maqueen_V5 {
 
     /**
      * Set the RGB light gradient
-     * @param type to type ,eg: DirectionType.Left
-     * @param  Select the speed level enumeration
+     * @param type to type
+     * @param grade Select the speed level enumeration
      */
     //% block="RGB Car Lights |%type Level of change |%SpeedGrade"
     //% weight=11
@@ -988,8 +1018,8 @@ namespace Maqueen_V5 {
         }
     }
     /**
-     * Turn off RGB
-     * @param type to type ,eg: DirectionType.Left
+     * Turn off all RGB
+     * @param type to type
      */
     //% block="Close |%type RGB Car Lights  "
     //% weight=11
@@ -1014,10 +1044,11 @@ namespace Maqueen_V5 {
             allBuffer = pins.i2cReadBuffer(I2CADDR, 2);
             return allBuffer[0] << 8 | allBuffer[1];
         }
-            
+
     }
     /**
      * Getting battery level(0-100)
+     * @param type Battery type
      */
     //% block="Read battery Values %type"
     //% weight=16
