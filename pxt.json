@@ -1,6 +1,6 @@
 {
     "name": "maqueen",
-    "version": "1.8.14",
+    "version": "1.7.15",
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
@@ -37,7 +37,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "7.0.51",
+        "target": "7.0.57",
         "targetId": "microbit"
     },
     "supportedTargets": [
