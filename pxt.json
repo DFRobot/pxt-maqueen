@@ -5,7 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "ir": "github:dfrobot/pxt-dfrobot_newir#v0.0.2"
+        "ir": "github:dfrobot/pxt-dfrobot_newir#v0.0.3"
     },
     "files": [
         "maqueen.ts",
