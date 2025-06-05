@@ -1,6 +1,6 @@
 {
     "name": "maqueen",
-    "version": "1.7.15",
+    "version": "1.7.16",
     "description": "Affordable mini robot designed by DFRobot",
     "license": "MIT",
     "dependencies": {
@@ -30,8 +30,8 @@
         "_locales/es/maqueen-jsdoc-strings.json",
         "_locales/nb/maqueen-jsdoc-strings.json",
         "_locales/cs/maqueen-jsdoc-strings.json",
-		"_locales/ko/maqueen-strings.json",
-		"_locales/ko/maqueen-jsdoc-strings.json",
+        "_locales/ko/maqueen-strings.json",
+        "_locales/ko/maqueen-jsdoc-strings.json",
         "_locales/zh-CN/README.md"
     ],
     "testFiles": [
@@ -39,7 +39,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "7.0.57",
+        "target": "7.0.61",
         "targetId": "microbit"
     },
     "supportedTargets": [
