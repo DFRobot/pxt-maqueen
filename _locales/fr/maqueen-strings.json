@@ -1,8 +1,8 @@
 {
   "PingUnit.Centimeters|block": "cm",
   "PingUnit.MicroSeconds|block": "μs",
-  "maqueen.Dir.CCW|block": "avant",
-  "maqueen.Dir.CW|block": "arrière",
+  "maqueen.Dir.CCW|block": "arrière",
+  "maqueen.Dir.CW|block": "avant",
   "maqueen.IR_callbackUser|block": "quand l'IR reçoit",
   "maqueen.IR_read_version|block": "Obtenir des informations sur le produit",
   "maqueen.IR_read|block": "lire l'infrarouge",
